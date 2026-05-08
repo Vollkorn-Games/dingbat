@@ -16,7 +16,7 @@ export function App(): React.ReactElement {
           <Routes>
             <Route element={<Layout />}>
               <Route index element={<GridPage />} />
-              <Route path="play/:id" element={<PlayPage />} />
+              <Route path="play/:slug" element={<PlayPage />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Route>
           </Routes>

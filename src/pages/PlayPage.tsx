@@ -15,7 +15,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import LightbulbIcon from '@mui/icons-material/LightbulbOutlined';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { PuzzleRenderer } from '@/components/PuzzleRenderer';
-import { findPuzzle, getPuzzles } from '@/data/puzzles';
+import { findPuzzleBySlug, getPuzzles, slugFor } from '@/data/puzzles';
 import type { Puzzle } from '@/data/types';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useProgress } from '@/hooks/useProgress';
@@ -56,18 +56,18 @@ function hasFinePointer(): boolean {
 }
 
 export function PlayPage(): React.ReactElement {
-  const params = useParams<{ id: string }>();
+  const params = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const { language, t } = useLanguage();
   const puzzles = useMemo(() => getPuzzles(language), [language]);
   const { isSolved, markSolved } = useProgress();
 
-  const puzzleId = params.id ?? '';
-  const puzzle = useMemo(() => findPuzzle(language, puzzleId), [language, puzzleId]);
+  const slug = params.slug ?? '';
+  const puzzle = useMemo(() => findPuzzleBySlug(language, slug), [language, slug]);
 
   const index = useMemo(
-    () => puzzles.findIndex((p) => p.id === puzzleId),
-    [puzzles, puzzleId],
+    () => (puzzle ? puzzles.findIndex((p) => p.id === puzzle.id) : -1),
+    [puzzles, puzzle],
   );
   const next: Puzzle | undefined =
     index >= 0 && index < puzzles.length - 1 ? puzzles[index + 1] : undefined;
@@ -87,7 +87,7 @@ export function PlayPage(): React.ReactElement {
     if (hasFinePointer()) {
       inputRef.current?.focus();
     }
-  }, [puzzleId]);
+  }, [slug]);
 
   if (!puzzle) {
     return (
@@ -116,7 +116,7 @@ export function PlayPage(): React.ReactElement {
 
   function goNext(): void {
     if (next) {
-      navigate(`/play/${next.id}`);
+      navigate(`/play/${slugFor(next.id)}`);
     } else {
       navigate('/');
     }
@@ -345,7 +345,7 @@ export function PlayPage(): React.ReactElement {
         <Stack direction="row" justifyContent="space-between" pt={1}>
           <Button
             component={RouterLink}
-            to={prev ? `/play/${prev.id}` : '/'}
+            to={prev ? `/play/${slugFor(prev.id)}` : '/'}
             startIcon={<ArrowBackIcon />}
             disabled={!prev}
           >
@@ -353,7 +353,7 @@ export function PlayPage(): React.ReactElement {
           </Button>
           <Button
             component={RouterLink}
-            to={next ? `/play/${next.id}` : '/'}
+            to={next ? `/play/${slugFor(next.id)}` : '/'}
             endIcon={<ArrowForwardIcon />}
             disabled={!next}
           >

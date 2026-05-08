@@ -6,6 +6,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { Link as RouterLink } from 'react-router-dom';
+import { slugFor } from '@/data/puzzles';
 import type { Puzzle } from '@/data/types';
 import { useLanguage } from '@/hooks/useLanguage';
 import { PuzzleRenderer } from './PuzzleRenderer';
@@ -50,7 +51,7 @@ export function PuzzleCard({ puzzle, index, solved }: Props): React.ReactElement
     >
       <CardActionArea
         component={RouterLink}
-        to={`/play/${puzzle.id}`}
+        to={`/play/${slugFor(puzzle.id)}`}
         aria-label={`${t.puzzleNumber((index + 1).toString())}, ${difficultyLabel}${solved ? `, ${t.solved}` : ''}`}
       >
         <Box
