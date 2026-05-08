@@ -1,56 +1,54 @@
 import { createTheme, alpha } from '@mui/material/styles';
 
-// "Golden Summer Fields" palette
+// "Refreshing Summer Fun" palette
 const PALETTE = {
-  sage: '#ccd5ae',
-  paleSage: '#e9edc9',
-  ivory: '#fefae0',
-  cream: '#faedcd',
-  tan: '#d4a373',
+  skyLight: '#8ecae6',
+  teal: '#219ebc',
+  deep: '#023047',
+  amber: '#ffb703',
+  orange: '#fb8500',
 } as const;
 
-// Derived warm tones to round out semantic colors
-const SAGE_DEEP = '#7a8b53';
-const HONEY = '#c98a35';
-const RUST = '#b35a3a';
-const COCOA = '#3a2e1d';
-const COCOA_SOFT = '#6e5a3f';
-const PARCHMENT = '#efe6cf';
-const PAPER = '#fffaee';
+// Derived neutrals tuned to the cool tones
+const TEXT_PRIMARY = PALETTE.deep;
+const TEXT_SECONDARY = '#4a6f85';
+const DIVIDER = '#dbe7ee';
+const PAPER = '#ffffff';
+const PAGE_BG = '#f0f7fb';
 
 export const theme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: PALETTE.tan,
-      light: '#e2bd8f',
-      dark: '#a37a51',
-      contrastText: '#fff',
+      main: PALETTE.deep,
+      light: PALETTE.teal,
+      dark: '#011d2c',
+      contrastText: '#ffffff',
     },
     secondary: {
-      main: SAGE_DEEP,
-      light: PALETTE.sage,
-      dark: '#5d6a3d',
-      contrastText: '#fff',
+      main: PALETTE.orange,
+      light: PALETTE.amber,
+      dark: '#cc6e00',
+      contrastText: '#ffffff',
     },
-    success: { main: SAGE_DEEP, light: PALETTE.sage, dark: '#5d6a3d' },
-    warning: { main: HONEY, light: '#e0ad6a', dark: '#9a6826' },
-    error: { main: RUST, light: '#d08163', dark: '#84412a' },
-    info: { main: '#7d8aa3', light: '#a3acbc', dark: '#5e6a82' },
+    success: { main: PALETTE.teal, light: PALETTE.skyLight, dark: '#176d83' },
+    warning: { main: PALETTE.amber, light: '#ffd05a', dark: '#cc8e00' },
+    error: { main: PALETTE.orange, light: '#ffa845', dark: '#c66800' },
+    info: { main: PALETTE.skyLight, light: '#bfe1f0', dark: PALETTE.teal },
     background: {
-      default: PALETTE.ivory,
+      default: PAGE_BG,
       paper: PAPER,
     },
     text: {
-      primary: COCOA,
-      secondary: COCOA_SOFT,
+      primary: TEXT_PRIMARY,
+      secondary: TEXT_SECONDARY,
     },
-    divider: PARCHMENT,
+    divider: DIVIDER,
     action: {
-      hover: alpha(PALETTE.tan, 0.08),
-      selected: alpha(PALETTE.tan, 0.16),
-      disabled: alpha(COCOA, 0.26),
-      disabledBackground: alpha(COCOA, 0.08),
+      hover: alpha(PALETTE.teal, 0.08),
+      selected: alpha(PALETTE.teal, 0.16),
+      disabled: alpha(PALETTE.deep, 0.26),
+      disabledBackground: alpha(PALETTE.deep, 0.08),
     },
   },
   shape: { borderRadius: 14 },
@@ -71,14 +69,15 @@ export const theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         body: {
-          backgroundColor: PALETTE.ivory,
-          // Subtle paper-grain feel via two soft radial highlights.
+          backgroundColor: PAGE_BG,
+          // Sky highlight top-left, sunset glow bottom-right — subtle so
+          // foreground surfaces (cards, paper) keep their contrast.
           backgroundImage: `radial-gradient(1200px 600px at 0% -10%, ${alpha(
-            PALETTE.cream,
-            0.7,
+            PALETTE.skyLight,
+            0.32,
           )}, transparent 60%), radial-gradient(900px 500px at 100% 110%, ${alpha(
-            PALETTE.paleSage,
-            0.55,
+            PALETTE.amber,
+            0.16,
           )}, transparent 55%)`,
           backgroundAttachment: 'fixed',
         },
@@ -88,11 +87,11 @@ export const theme = createTheme({
       defaultProps: { color: 'transparent', elevation: 0 },
       styleOverrides: {
         root: {
-          backgroundColor: alpha(PAPER, 0.85),
-          backdropFilter: 'saturate(1.1) blur(8px)',
-          WebkitBackdropFilter: 'saturate(1.1) blur(8px)',
-          borderBottom: `1px solid ${PARCHMENT}`,
-          color: COCOA,
+          backgroundColor: alpha('#ffffff', 0.85),
+          backdropFilter: 'saturate(1.2) blur(8px)',
+          WebkitBackdropFilter: 'saturate(1.2) blur(8px)',
+          borderBottom: `1px solid ${DIVIDER}`,
+          color: TEXT_PRIMARY,
         },
       },
     },
@@ -100,9 +99,27 @@ export const theme = createTheme({
       styleOverrides: {
         root: { textTransform: 'none', fontWeight: 600, borderRadius: 12 },
         containedPrimary: {
-          boxShadow: '0 1px 0 rgba(255,255,255,0.5) inset, 0 6px 14px rgba(212,163,115,0.28)',
+          boxShadow: `0 1px 0 ${alpha('#ffffff', 0.4)} inset, 0 6px 14px ${alpha(
+            PALETTE.deep,
+            0.28,
+          )}`,
           '&:hover': {
-            boxShadow: '0 1px 0 rgba(255,255,255,0.5) inset, 0 8px 18px rgba(212,163,115,0.34)',
+            boxShadow: `0 1px 0 ${alpha('#ffffff', 0.4)} inset, 0 8px 18px ${alpha(
+              PALETTE.deep,
+              0.36,
+            )}`,
+          },
+        },
+        containedSecondary: {
+          boxShadow: `0 1px 0 ${alpha('#ffffff', 0.5)} inset, 0 6px 14px ${alpha(
+            PALETTE.orange,
+            0.32,
+          )}`,
+          '&:hover': {
+            boxShadow: `0 1px 0 ${alpha('#ffffff', 0.5)} inset, 0 8px 18px ${alpha(
+              PALETTE.orange,
+              0.4,
+            )}`,
           },
         },
       },
@@ -112,7 +129,7 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           backgroundColor: PAPER,
-          border: `1px solid ${PARCHMENT}`,
+          border: `1px solid ${DIVIDER}`,
           transition: 'transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease',
         },
       },
@@ -127,13 +144,13 @@ export const theme = createTheme({
         root: {
           textTransform: 'none',
           fontWeight: 600,
-          color: COCOA_SOFT,
-          borderColor: PARCHMENT,
+          color: TEXT_SECONDARY,
+          borderColor: DIVIDER,
           '&.Mui-selected': {
-            backgroundColor: alpha(PALETTE.tan, 0.18),
-            color: COCOA,
-            borderColor: alpha(PALETTE.tan, 0.5),
-            '&:hover': { backgroundColor: alpha(PALETTE.tan, 0.24) },
+            backgroundColor: alpha(PALETTE.teal, 0.18),
+            color: PALETTE.deep,
+            borderColor: alpha(PALETTE.teal, 0.5),
+            '&:hover': { backgroundColor: alpha(PALETTE.teal, 0.26) },
           },
         },
       },
@@ -141,7 +158,7 @@ export const theme = createTheme({
     MuiToggleButtonGroup: {
       styleOverrides: {
         root: {
-          backgroundColor: alpha(PALETTE.cream, 0.5),
+          backgroundColor: alpha(PALETTE.skyLight, 0.18),
           borderRadius: 12,
           padding: 2,
           '& .MuiToggleButton-root': {
@@ -153,7 +170,7 @@ export const theme = createTheme({
     },
     MuiChip: {
       styleOverrides: {
-        outlined: { borderColor: PARCHMENT },
+        outlined: { borderColor: DIVIDER },
       },
     },
     MuiTextField: {
@@ -163,26 +180,27 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           backgroundColor: PAPER,
-          '& fieldset': { borderColor: PARCHMENT },
-          '&:hover fieldset': { borderColor: alpha(PALETTE.tan, 0.5) },
+          '& fieldset': { borderColor: DIVIDER },
+          '&:hover fieldset': { borderColor: alpha(PALETTE.teal, 0.55) },
         },
       },
     },
     MuiAlert: {
       styleOverrides: {
-        outlinedSuccess: { backgroundColor: alpha(PALETTE.sage, 0.25) },
-        outlinedInfo: { backgroundColor: alpha(PALETTE.cream, 0.5) },
-        outlinedError: { backgroundColor: alpha(RUST, 0.08) },
+        outlinedSuccess: { backgroundColor: alpha(PALETTE.skyLight, 0.22) },
+        outlinedInfo: { backgroundColor: alpha(PALETTE.skyLight, 0.18) },
+        outlinedError: { backgroundColor: alpha(PALETTE.orange, 0.1) },
+        outlinedWarning: { backgroundColor: alpha(PALETTE.amber, 0.14) },
       },
     },
     MuiDialog: {
       styleOverrides: {
-        paper: { backgroundColor: PAPER, border: `1px solid ${PARCHMENT}` },
+        paper: { backgroundColor: PAPER, border: `1px solid ${DIVIDER}` },
       },
     },
     MuiLinearProgress: {
       styleOverrides: {
-        root: { backgroundColor: alpha(COCOA, 0.06) },
+        root: { backgroundColor: alpha(PALETTE.deep, 0.06) },
       },
     },
   },
@@ -190,11 +208,9 @@ export const theme = createTheme({
 
 export const palette = {
   ...PALETTE,
-  sageDeep: SAGE_DEEP,
-  honey: HONEY,
-  rust: RUST,
-  cocoa: COCOA,
-  cocoaSoft: COCOA_SOFT,
-  parchment: PARCHMENT,
+  textPrimary: TEXT_PRIMARY,
+  textSecondary: TEXT_SECONDARY,
+  divider: DIVIDER,
   paper: PAPER,
+  pageBg: PAGE_BG,
 } as const;

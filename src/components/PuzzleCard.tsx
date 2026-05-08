@@ -35,15 +35,15 @@ export function PuzzleCard({ puzzle, index, solved }: Props): React.ReactElement
     <Card
       sx={{
         position: 'relative',
-        borderColor: solved ? 'success.light' : 'divider',
+        borderColor: solved ? 'success.main' : 'divider',
         boxShadow: solved
-          ? '0 1px 0 rgba(255,255,255,0.6) inset, 0 4px 12px rgba(122,139,83,0.18)'
-          : '0 1px 0 rgba(255,255,255,0.6) inset, 0 2px 8px rgba(58,46,29,0.06)',
+          ? '0 1px 0 rgba(255,255,255,0.6) inset, 0 6px 18px rgba(33,158,188,0.28)'
+          : '0 1px 0 rgba(255,255,255,0.7) inset, 0 6px 16px rgba(2,48,71,0.14)',
         '&:hover': {
           transform: 'translateY(-3px)',
           boxShadow: solved
-            ? '0 1px 0 rgba(255,255,255,0.6) inset, 0 10px 22px rgba(122,139,83,0.22)'
-            : '0 1px 0 rgba(255,255,255,0.6) inset, 0 10px 22px rgba(58,46,29,0.12)',
+            ? '0 1px 0 rgba(255,255,255,0.6) inset, 0 12px 26px rgba(33,158,188,0.36)'
+            : '0 1px 0 rgba(255,255,255,0.7) inset, 0 12px 26px rgba(2,48,71,0.22)',
           borderColor: solved ? 'success.main' : 'primary.light',
         },
       }}
@@ -57,10 +57,10 @@ export function PuzzleCard({ puzzle, index, solved }: Props): React.ReactElement
           sx={{
             position: 'relative',
             aspectRatio: '1 / 1',
-            backgroundColor: 'background.paper',
+            backgroundColor: solved ? 'rgba(142,202,230,0.28)' : 'background.paper',
             backgroundImage: solved
-              ? 'linear-gradient(140deg, rgba(204,213,174,0.35), rgba(254,250,224,0.7))'
-              : 'linear-gradient(140deg, rgba(250,237,205,0.55), rgba(254,250,224,0.85))',
+              ? 'linear-gradient(140deg, rgba(142,202,230,0.55), rgba(255,255,255,0.65))'
+              : 'none',
             overflow: 'hidden',
           }}
         >

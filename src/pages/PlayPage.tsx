@@ -44,6 +44,17 @@ const DIFFICULTY_LABEL_KEY = {
   hard: 'difficultyHard',
 } as const;
 
+// Keyboard auto-focus is helpful with a physical keyboard but jarring on
+// touch devices, where it pops up the soft keyboard before the player
+// has had a chance to look at the puzzle.
+function hasFinePointer(): boolean {
+  return (
+    typeof window !== 'undefined' &&
+    typeof window.matchMedia === 'function' &&
+    window.matchMedia('(pointer: fine)').matches
+  );
+}
+
 export function PlayPage(): React.ReactElement {
   const params = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -73,7 +84,9 @@ export function PlayPage(): React.ReactElement {
     setFeedback('idle');
     setHintLevel(0);
     setRevealed(false);
-    inputRef.current?.focus();
+    if (hasFinePointer()) {
+      inputRef.current?.focus();
+    }
   }, [puzzleId]);
 
   if (!puzzle) {
@@ -116,16 +129,58 @@ export function PlayPage(): React.ReactElement {
 
   return (
     <Stack spacing={3}>
-      <Stack direction="row" alignItems="center" spacing={1}>
-        <IconButton component={RouterLink} to="/" aria-label={t.back}>
-          <ArrowBackIcon />
-        </IconButton>
-        <Typography variant="h5" component="h1" sx={{ flexGrow: 1 }}>
-          {t.puzzleNumber((index + 1).toString().padStart(3, '0'))}
-        </Typography>
-        <Chip label={difficultyLabel} size="small" variant="outlined" />
-        {alreadySolved ? <Chip label={t.solved} size="small" color="success" /> : null}
-      </Stack>
+      <Box
+        sx={{
+          position: 'sticky',
+          top: { xs: 56, sm: 64 },
+          zIndex: (theme) => theme.zIndex.appBar - 1,
+          // Bleed to container edges and dock visually under the AppBar.
+          mx: { xs: -2, sm: -3 },
+          mt: { xs: -2, sm: -4 },
+          px: { xs: 1, sm: 2 },
+          py: 0.5,
+          backgroundColor: 'rgba(240, 247, 251, 0.88)',
+          backdropFilter: 'saturate(1.2) blur(8px)',
+          WebkitBackdropFilter: 'saturate(1.2) blur(8px)',
+          borderBottom: '1px solid',
+          borderColor: 'divider',
+        }}
+      >
+        <Stack direction="row" alignItems="center" spacing={1}>
+          <IconButton
+            component={RouterLink}
+            to="/"
+            aria-label={t.back}
+            size="large"
+            sx={{ color: 'text.primary' }}
+          >
+            <ArrowBackIcon />
+          </IconButton>
+          <Typography
+            variant="h6"
+            component="h1"
+            sx={{
+              flexGrow: 1,
+              minWidth: 0,
+              overflow: 'hidden',
+              whiteSpace: 'nowrap',
+              textOverflow: 'ellipsis',
+              fontVariantNumeric: 'tabular-nums',
+            }}
+          >
+            {t.puzzleNumber((index + 1).toString().padStart(3, '0'))}
+          </Typography>
+          <Chip label={difficultyLabel} size="small" variant="outlined" />
+          {alreadySolved ? (
+            <Chip
+              label={t.solved}
+              size="small"
+              color="success"
+              sx={{ display: { xs: 'none', sm: 'inline-flex' } }}
+            />
+          ) : null}
+        </Stack>
+      </Box>
 
       <Paper
         elevation={0}
@@ -136,10 +191,9 @@ export function PlayPage(): React.ReactElement {
           width: '100%',
           border: '1px solid',
           borderColor: 'divider',
-          backgroundImage:
-            'linear-gradient(140deg, rgba(250,237,205,0.6), rgba(254,250,224,0.9))',
+          backgroundColor: 'background.paper',
           boxShadow:
-            '0 1px 0 rgba(255,255,255,0.7) inset, 0 12px 28px rgba(58,46,29,0.10)',
+            '0 1px 0 rgba(255,255,255,0.7) inset, 0 12px 28px rgba(2,48,71,0.18)',
         }}
       >
         <PuzzleRenderer visual={puzzle.visual} padding={24} />
@@ -183,57 +237,65 @@ export function PlayPage(): React.ReactElement {
         />
 
         {feedback === 'wrong' ? (
-          <Alert severity="error" variant="outlined">
+          <Alert severity="error" variant="outlined" sx={{ overflowWrap: 'anywhere' }}>
             {t.notQuite}
           </Alert>
         ) : null}
         {feedback === 'correct' ? (
-          <Alert severity="success" variant="filled">
+          <Alert severity="success" variant="filled" sx={{ overflowWrap: 'anywhere' }}>
             {t.correctAnswer(puzzle.answer)}
             {puzzle.explanation !== undefined ? ` ${puzzle.explanation}` : ''}
           </Alert>
         ) : null}
         {revealed && feedback !== 'correct' ? (
-          <Alert severity="info" variant="outlined">
+          <Alert severity="info" variant="outlined" sx={{ overflowWrap: 'anywhere' }}>
             {t.revealAnswer(puzzle.answer)}
             {puzzle.explanation !== undefined ? ` ${puzzle.explanation}` : ''}
           </Alert>
         ) : null}
         {hintText !== null && feedback !== 'correct' && !revealed ? (
           <Alert severity="info" variant="outlined" icon={<LightbulbIcon />}>
-            <Box component="span" sx={{ fontFamily: 'monospace', letterSpacing: '0.2em' }}>
+            <Box
+              component="span"
+              sx={{
+                fontFamily: 'monospace',
+                letterSpacing: '0.2em',
+                overflowWrap: 'anywhere',
+              }}
+            >
               {hintText}
             </Box>
           </Alert>
         ) : null}
 
-        <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1}>
-          {feedback === 'correct' ? (
+        {feedback === 'correct' ? (
+          <Button
+            type="submit"
+            variant="contained"
+            size="large"
+            endIcon={<ArrowForwardIcon />}
+            fullWidth
+          >
+            {next ? t.nextPuzzle : t.backToGrid}
+          </Button>
+        ) : (
+          <Stack spacing={1}>
             <Button
               type="submit"
               variant="contained"
               size="large"
-              endIcon={<ArrowForwardIcon />}
               fullWidth
+              disabled={guess.trim().length === 0 || revealed}
             >
-              {next ? t.nextPuzzle : t.backToGrid}
+              {t.submit}
             </Button>
-          ) : (
-            <>
-              <Button
-                type="submit"
-                variant="contained"
-                size="large"
-                disabled={guess.trim().length === 0 || revealed}
-                sx={{ flexGrow: 1 }}
-              >
-                {t.submit}
-              </Button>
+            <Stack direction="row" spacing={1}>
               <Tooltip title={t.hintTooltip}>
-                <span>
+                <Box component="span" sx={{ flex: 1, display: 'flex' }}>
                   <Button
                     variant="outlined"
                     size="large"
+                    fullWidth
                     startIcon={<LightbulbIcon />}
                     onClick={() => {
                       setHintLevel((l) => l + 1);
@@ -242,13 +304,14 @@ export function PlayPage(): React.ReactElement {
                   >
                     {t.hint}
                   </Button>
-                </span>
+                </Box>
               </Tooltip>
               <Tooltip title={t.revealTooltip}>
-                <span>
+                <Box component="span" sx={{ flex: 1, display: 'flex' }}>
                   <Button
                     variant="text"
                     size="large"
+                    fullWidth
                     startIcon={<VisibilityIcon />}
                     onClick={() => {
                       setRevealed(true);
@@ -257,11 +320,11 @@ export function PlayPage(): React.ReactElement {
                   >
                     {t.reveal}
                   </Button>
-                </span>
+                </Box>
               </Tooltip>
-            </>
-          )}
-        </Stack>
+            </Stack>
+          </Stack>
+        )}
 
         <Stack direction="row" justifyContent="space-between" pt={1}>
           <Button
