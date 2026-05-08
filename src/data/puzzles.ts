@@ -38,6 +38,28 @@ function spreadByPrimaryTag(puzzles: readonly Puzzle[]): readonly Puzzle[] {
   return scored.map((x) => x.p);
 }
 
+/**
+ * Fails fast at module load if a deck has duplicate ids. Duplicates are
+ * particularly nasty because the grid renders both entries (so the deck looks
+ * fine), but `findPuzzle` returns the first match — clicking the second card
+ * routes to the wrong puzzle.
+ */
+function assertUniqueIds(puzzles: readonly Puzzle[], language: Language): void {
+  const seen = new Set<string>();
+  for (const p of puzzles) {
+    if (seen.has(p.id)) {
+      throw new Error(
+        `Duplicate puzzle id in ${language} deck: "${p.id}". ` +
+          'Ids drive localStorage progress and must be unique within a language.',
+      );
+    }
+    seen.add(p.id);
+  }
+}
+
+assertUniqueIds(PUZZLES_EN, 'en');
+assertUniqueIds(PUZZLES_DE, 'de');
+
 const REGISTRY: Record<Language, readonly Puzzle[]> = {
   en: spreadByPrimaryTag(PUZZLES_EN),
   de: spreadByPrimaryTag(PUZZLES_DE),
