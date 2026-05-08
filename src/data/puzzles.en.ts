@@ -2710,4 +2710,332 @@ export const PUZZLES_EN: readonly Puzzle[] = [
       ],
     },
   },
+
+  // --- Layered idioms (compose visual) -------------------------------------
+  // Scenes whose meaning lives in the spatial relationship between layers —
+  // overlays, rotation, partially hidden symbols. Use compose when text
+  // layout can't capture the picture.
+  {
+    id: 'cat-got-your-tongue',
+    answer: 'Cat got your tongue',
+    alternatives: ['Cat got your tongue?', 'Has the cat got your tongue', 'Cat got your tongue.'],
+    difficulty: 'medium',
+    tags: ['idiom'],
+    explanation: 'A 🐈 sits on the word TONGUE.',
+    meaning: 'Said to someone who is unexpectedly silent.',
+    visual: {
+      kind: 'compose',
+      layers: [
+        {
+          x: 0.5,
+          y: 0.6,
+          scale: 1.7,
+          segments: [{ text: 'TONGUE', style: ['bold'] }],
+        },
+        {
+          x: 0.5,
+          y: 0.32,
+          scale: 1.7,
+          rotate: -8,
+          segments: [{ text: '🐈' }],
+        },
+      ],
+    },
+  },
+  {
+    id: 'apple-of-my-eye',
+    answer: 'Apple of my eye',
+    alternatives: ['The apple of my eye', 'Apple of the eye'],
+    difficulty: 'easy',
+    tags: ['idiom'],
+    explanation: 'An 🍎 sits inside the word EYE.',
+    meaning: 'Someone you cherish above all others.',
+    visual: {
+      kind: 'compose',
+      layers: [
+        {
+          x: 0.34,
+          y: 0.5,
+          scale: 1.8,
+          segments: [{ text: 'E', style: ['bold'] }],
+        },
+        {
+          x: 0.5,
+          y: 0.5,
+          scale: 1.4,
+          segments: [{ text: '🍎' }],
+        },
+        {
+          x: 0.68,
+          y: 0.5,
+          scale: 1.8,
+          segments: [{ text: 'YE', style: ['bold'] }],
+        },
+      ],
+    },
+  },
+  {
+    id: 'wolf-in-sheeps-clothing',
+    answer: "Wolf in sheep's clothing",
+    alternatives: [
+      "A wolf in sheep's clothing",
+      'Wolf in sheeps clothing',
+      'A wolf in sheeps clothing',
+    ],
+    difficulty: 'medium',
+    tags: ['idiom'],
+    explanation: 'A 🐺 hides inside the word SHEEP.',
+    meaning: 'Someone hiding malicious intent behind a friendly face.',
+    visual: {
+      kind: 'compose',
+      layers: [
+        {
+          x: 0.5,
+          y: 0.5,
+          scale: 1.8,
+          segments: [{ text: 'SHEEP', style: ['bold', 'outline'] }],
+        },
+        {
+          x: 0.5,
+          y: 0.5,
+          scale: 1.1,
+          segments: [{ text: '🐺' }],
+        },
+      ],
+    },
+  },
+  {
+    id: 'pat-on-the-back',
+    answer: 'Pat on the back',
+    alternatives: ['A pat on the back', 'Give yourself a pat on the back'],
+    difficulty: 'easy',
+    tags: ['idiom'],
+    explanation: 'A ✋ pats the word BACK from above.',
+    meaning: 'A gesture of praise or encouragement.',
+    visual: {
+      kind: 'compose',
+      layers: [
+        {
+          x: 0.5,
+          y: 0.62,
+          scale: 1.8,
+          segments: [{ text: 'BACK', style: ['bold'] }],
+        },
+        {
+          x: 0.5,
+          y: 0.3,
+          scale: 1.6,
+          rotate: -15,
+          segments: [{ text: '✋' }],
+        },
+      ],
+    },
+  },
+  {
+    id: 'skeleton-in-the-closet',
+    answer: 'Skeleton in the closet',
+    alternatives: [
+      'A skeleton in the closet',
+      'Skeletons in the closet',
+      'Skeleton in the cupboard',
+      'A skeleton in the cupboard',
+    ],
+    difficulty: 'medium',
+    tags: ['idiom'],
+    explanation: 'A 💀 hidden between the letters of CLOSET.',
+    meaning: 'A hidden, embarrassing secret from the past.',
+    visual: {
+      kind: 'compose',
+      layers: [
+        {
+          x: 0.32,
+          y: 0.5,
+          scale: 1.7,
+          segments: [{ text: 'CL', style: ['bold'] }],
+        },
+        {
+          x: 0.5,
+          y: 0.5,
+          scale: 1.3,
+          segments: [{ text: '💀' }],
+        },
+        {
+          x: 0.7,
+          y: 0.5,
+          scale: 1.7,
+          segments: [{ text: 'SET', style: ['bold'] }],
+        },
+      ],
+    },
+  },
+  {
+    id: 'elephant-in-the-room',
+    answer: 'Elephant in the room',
+    alternatives: ['The elephant in the room', 'An elephant in the room'],
+    difficulty: 'medium',
+    tags: ['idiom'],
+    explanation: 'A 🐘 dominates the small word ROOM.',
+    meaning: 'An obvious problem nobody wants to acknowledge.',
+    visual: {
+      kind: 'compose',
+      layers: [
+        {
+          x: 0.5,
+          y: 0.7,
+          scale: 0.9,
+          segments: [{ text: 'ROOM', style: ['bold', 'box'] }],
+        },
+        {
+          x: 0.5,
+          y: 0.4,
+          scale: 3.2,
+          segments: [{ text: '🐘' }],
+        },
+      ],
+    },
+  },
+  {
+    id: 'cold-feet',
+    answer: 'Cold feet',
+    alternatives: ['Getting cold feet', 'Got cold feet'],
+    difficulty: 'easy',
+    tags: ['idiom'],
+    explanation: '❄️ snowflakes scattered over the word FEET.',
+    meaning: 'Last-minute hesitation or loss of nerve.',
+    visual: {
+      kind: 'compose',
+      layers: [
+        {
+          x: 0.5,
+          y: 0.6,
+          scale: 1.8,
+          segments: [{ text: 'FEET', style: ['bold'] }],
+        },
+        {
+          x: 0.25,
+          y: 0.3,
+          scale: 1.3,
+          rotate: -15,
+          segments: [{ text: '❄️' }],
+        },
+        {
+          x: 0.5,
+          y: 0.25,
+          scale: 1.5,
+          segments: [{ text: '❄️' }],
+        },
+        {
+          x: 0.75,
+          y: 0.32,
+          scale: 1.3,
+          rotate: 15,
+          segments: [{ text: '❄️' }],
+        },
+      ],
+    },
+  },
+  {
+    id: 'tip-of-the-iceberg',
+    answer: 'Tip of the iceberg',
+    alternatives: ['The tip of the iceberg', 'Just the tip of the iceberg'],
+    difficulty: 'medium',
+    tags: ['idiom'],
+    explanation: 'A small 🧊 above a wavy water line — the huge ICEBERG below is hidden.',
+    meaning: 'Only a small visible part of a much larger problem or thing.',
+    visual: {
+      kind: 'compose',
+      layers: [
+        {
+          x: 0.5,
+          y: 0.32,
+          scale: 1.4,
+          segments: [{ text: '🧊' }],
+        },
+        {
+          x: 0.5,
+          y: 0.5,
+          scale: 1.4,
+          segments: [{ text: '〰️〰️〰️〰️', style: ['bold'], color: '#1976d2' }],
+        },
+        {
+          x: 0.5,
+          y: 0.7,
+          scale: 1.6,
+          segments: [{ text: 'ICEBERG', style: ['bold'] }],
+        },
+      ],
+    },
+  },
+  {
+    id: 'open-a-can-of-worms',
+    answer: 'Open a can of worms',
+    alternatives: [
+      'Open a can of worms.',
+      'Opening a can of worms',
+      'A can of worms',
+    ],
+    difficulty: 'medium',
+    tags: ['idiom'],
+    explanation: '🐛 worms escape the boxed CAN at angles.',
+    meaning: 'To start a problem that creates many new complications.',
+    visual: {
+      kind: 'compose',
+      layers: [
+        {
+          x: 0.4,
+          y: 0.6,
+          scale: 1.6,
+          segments: [{ text: 'CAN', style: ['bold', 'box'] }],
+        },
+        {
+          x: 0.65,
+          y: 0.4,
+          scale: 1.3,
+          rotate: -25,
+          segments: [{ text: '🐛' }],
+        },
+        {
+          x: 0.78,
+          y: 0.55,
+          scale: 1.2,
+          rotate: 10,
+          segments: [{ text: '🐛' }],
+        },
+        {
+          x: 0.7,
+          y: 0.7,
+          scale: 1.1,
+          rotate: 35,
+          segments: [{ text: '🐛' }],
+        },
+      ],
+    },
+  },
+  {
+    id: 'storm-in-a-teacup',
+    answer: 'Storm in a teacup',
+    alternatives: ['A storm in a teacup', 'Tempest in a teapot', 'A tempest in a teapot'],
+    difficulty: 'medium',
+    tags: ['idiom'],
+    explanation: '⛈️ rages above ☕.',
+    meaning: 'A big fuss made over something unimportant.',
+    visual: {
+      kind: 'compose',
+      layers: [
+        {
+          x: 0.5,
+          y: 0.32,
+          scale: 1.8,
+          rotate: -10,
+          segments: [{ text: '⛈️' }],
+        },
+        {
+          x: 0.5,
+          y: 0.65,
+          scale: 2.6,
+          segments: [{ text: '☕' }],
+        },
+      ],
+    },
+  },
 ];
