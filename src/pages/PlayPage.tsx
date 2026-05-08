@@ -65,6 +65,16 @@ export function PlayPage(): React.ReactElement {
   const slug = params.slug ?? '';
   const puzzle = useMemo(() => findPuzzleBySlug(language, slug), [language, slug]);
 
+  // Decks are language-namespaced — a slug from the English deck won't resolve
+  // in the German deck. If the user switches language mid-puzzle, fall back to
+  // the grid for the new language rather than showing "not found".
+  const initialLanguageRef = useRef(language);
+  useEffect(() => {
+    if (language !== initialLanguageRef.current) {
+      navigate('/', { replace: true });
+    }
+  }, [language, navigate]);
+
   const index = useMemo(
     () => (puzzle ? puzzles.findIndex((p) => p.id === puzzle.id) : -1),
     [puzzles, puzzle],
