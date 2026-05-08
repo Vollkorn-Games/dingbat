@@ -245,7 +245,7 @@ export const PUZZLES_DE: readonly Puzzle[] = [
   {
     id: 'de-num-keine-ahnung',
     answer: 'Keine Ahnung',
-    alternatives: ['keine ahnung', '0 Ahnung'],
+    alternatives: ['keine ahnung', '0 Ahnung', 'Null Ahnung', 'null ahnung'],
     difficulty: 'medium',
     tags: ['numbers', 'redewendung'],
     explanation: '0 (keine) + AHNUNG = Keine Ahnung.',
@@ -322,34 +322,11 @@ export const PUZZLES_DE: readonly Puzzle[] = [
     },
   },
   {
-    id: 'de-rep-schritt-fuer-schritt',
-    answer: 'Schritt für Schritt',
-    alternatives: ['Schritt fuer Schritt'],
+    id: 'de-num-doppelkopf',
+    answer: 'Doppelkopf',
     difficulty: 'easy',
-    tags: ['phrase', 'repetition'],
-    explanation: 'Zwei Schritte mit der Ziffer 4 (= für) dazwischen.',
-    visual: {
-      kind: 'text',
-      lines: [
-        {
-          align: 'center',
-          segments: [
-            { text: 'SCHRITT', style: ['bold', 'huge'] },
-            { text: ' ' },
-            { text: '4', style: ['bold', 'small'], color: RED },
-            { text: ' ' },
-            { text: 'SCHRITT', style: ['bold', 'huge'] },
-          ],
-        },
-      ],
-    },
-  },
-  {
-    id: 'de-rep-kopf-an-kopf',
-    answer: 'Kopf an Kopf',
-    difficulty: 'easy',
-    tags: ['phrase', 'repetition'],
-    explanation: 'Zwei Köpfe direkt nebeneinander – Kopf an Kopf.',
+    tags: ['numbers', 'repetition'],
+    explanation: 'Zwei Köpfe = doppelt – Doppelkopf.',
     visual: {
       kind: 'text',
       lines: [
@@ -364,66 +341,21 @@ export const PUZZLES_DE: readonly Puzzle[] = [
     },
   },
   {
-    id: 'de-rep-tuer-an-tuer',
+    id: 'de-rep-tuer-an-tuer-v2',
     answer: 'Tür an Tür',
     alternatives: ['Tuer an Tuer'],
-    difficulty: 'easy',
-    tags: ['phrase', 'repetition'],
-    explanation: 'Zwei Türen direkt aneinander.',
-    visual: {
-      kind: 'text',
-      lines: [
-        {
-          align: 'center',
-          segments: [
-            { text: 'TÜR', style: ['bold', 'huge', 'box'] },
-            { text: 'TÜR', style: ['bold', 'huge', 'box'] },
-          ],
-        },
-      ],
-    },
-  },
-  {
-    id: 'de-rep-wort-fuer-wort',
-    answer: 'Wort für Wort',
-    alternatives: ['Wort fuer Wort'],
-    difficulty: 'easy',
-    tags: ['phrase', 'repetition'],
-    explanation: '4 = für, zwischen zwei „Wort".',
-    visual: {
-      kind: 'text',
-      lines: [
-        {
-          align: 'center',
-          segments: [
-            { text: 'WORT', style: ['bold', 'huge'] },
-            { text: ' ' },
-            { text: '4', style: ['bold', 'small'], color: RED },
-            { text: ' ' },
-            { text: 'WORT', style: ['bold', 'huge'] },
-          ],
-        },
-      ],
-    },
-  },
-  {
-    id: 'de-rep-stueck-fuer-stueck',
-    answer: 'Stück für Stück',
-    alternatives: ['Stueck fuer Stueck'],
     difficulty: 'medium',
     tags: ['phrase', 'repetition'],
-    explanation: 'Stück, kleines „für" (4), Stück.',
+    explanation: 'Zwei Türen, durch eine Wand getrennt – Tür an Tür wohnen.',
     visual: {
       kind: 'text',
       lines: [
         {
           align: 'center',
           segments: [
-            { text: 'STÜCK', style: ['bold', 'huge'] },
-            { text: ' ' },
-            { text: '4', style: ['bold', 'small'], color: RED },
-            { text: ' ' },
-            { text: 'STÜCK', style: ['bold', 'huge'] },
+            { text: 'TÜR', style: ['bold', 'huge', 'box'] },
+            { text: '🧱', style: ['huge'] },
+            { text: 'TÜR', style: ['bold', 'huge', 'box'] },
           ],
         },
       ],
@@ -484,29 +416,6 @@ export const PUZZLES_DE: readonly Puzzle[] = [
     },
   },
   {
-    id: 'de-rep-jahr-fuer-jahr',
-    answer: 'Jahr für Jahr',
-    alternatives: ['Jahr fuer Jahr'],
-    difficulty: 'easy',
-    tags: ['phrase', 'repetition'],
-    explanation: 'JAHR – 4 (für) – JAHR.',
-    visual: {
-      kind: 'text',
-      lines: [
-        {
-          align: 'center',
-          segments: [
-            { text: 'JAHR', style: ['bold', 'huge'] },
-            { text: ' ' },
-            { text: '4', style: ['bold', 'small'], color: RED },
-            { text: ' ' },
-            { text: 'JAHR', style: ['bold', 'huge'] },
-          ],
-        },
-      ],
-    },
-  },
-  {
     id: 'de-rep-auf-und-ab',
     answer: 'Auf und ab',
     difficulty: 'medium',
@@ -523,22 +432,6 @@ export const PUZZLES_DE: readonly Puzzle[] = [
             { text: '↓', style: ['bold', 'mega'], color: RED },
           ],
         },
-      ],
-    },
-  },
-  {
-    id: 'de-rep-tropfen-fuer-tropfen',
-    answer: 'Tropfen für Tropfen',
-    alternatives: ['Tropfen fuer Tropfen'],
-    difficulty: 'medium',
-    tags: ['phrase', 'repetition'],
-    explanation: 'Tropfen, „4" (für), Tropfen – fallend gestapelt.',
-    visual: {
-      kind: 'text',
-      lines: [
-        { align: 'center', segments: [{ text: 'TROPFEN', style: ['bold', 'huge'] }] },
-        { align: 'center', segments: [{ text: '4', style: ['bold', 'small'], color: BLUE }] },
-        { align: 'center', segments: [{ text: 'TROPFEN', style: ['bold', 'huge'] }] },
       ],
     },
   },

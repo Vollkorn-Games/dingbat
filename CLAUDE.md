@@ -73,6 +73,54 @@ If the answer to all five is yes, you have a real dingbat.
 - **Size**: weak by default. Don't use as a category — use it as a *cue inside* a larger puzzle (e.g. fading letters for "Den Faden verlieren").
 - **Mirror / flip / rotate**: only works when it yields a different word. Mirror = "rück/back/zurück", flip = "kopfüber/upside down/verkehrt". Combine with another stem.
 
+## Language-specific pitfalls — German ≠ English
+
+English dingbat tropes do **not** translate 1:1 into other languages. When writing German puzzles, think in **German pronunciation** and **German idioms** — never port English logic.
+
+### Number substitutions: only via German pronunciation
+
+In English, homophones like `4 = "four" ≈ "for"`, `8 = "ate"`, `2 = "to"/"too"` work because the digit name and the connector word sound the same. In German the digit pronunciations are *different* — those substitutions are nonsense.
+
+The only valid German digit substitutions are the ones where the spoken digit name is the homophone:
+
+| Digit | Stands for | Examples |
+|---|---|---|
+| 0 | Null / keine | `0 BOCK` → Null Bock; `0 AHNUNG` → keine/Null Ahnung |
+| 1 | ein / eins | `1FACH` → einfach; `ALL1` → allein |
+| 2 | zwei | `2FEL` → Zweifel |
+| 3 | drei | `3ECK` → Dreieck |
+| 4 | vier | `4TEL` → Viertel — **never „für"!** |
+| 7 | sieben | `7SACHEN` → Siebensachen |
+| 8 | acht | `8UNG` → Achtung; `M8` → Macht; `N8` → Nacht; `GEM8` → gemacht; `OHNM8` → Ohnmacht |
+| 10 | zehn | `10KAMPF` → Zehnkampf |
+
+**Forbidden in German**: `4 = für`, `8 = ate`, `2 = to/too`, or any substitution that only works as an English homophone. The test: silently pronounce the digit in German — the German number word that comes out must be exactly the syllable the answer needs. If you have to switch languages in your head, the puzzle is wrong.
+
+### Connectors that are NOT visually encodable in German
+
+Spatial arrangement can only encode *spatial* prepositions. In German this works well for: `in`, `an`, `auf`, `über`, `unter`, `vor` (spatial), `neben`, `zwischen`, `gegen` (via mirror), `um` (via wrapping).
+
+**Hard / impossible to encode in German**: `für`, `bei`, `nach`, `mit`, `ohne`, `aus`. Phrases like „Schritt für Schritt", „Wort für Wort", „Stück für Stück", „Jahr für Jahr", „Tropfen für Tropfen" are tempting because the English mirror (`STEP 4 STEP`) works via `4 = for` — but the trick **does not carry over to German**. Drop these or pick a different idiom; do not invent fake `4 = für` substitutions.
+
+### `XX` repetition often reads as `Doppel-X` in German
+
+In English, `HEADHEAD` unambiguously means „head to head" because „doublehead" isn't a word. In German, many noun doublings collide with an established `Doppel-X` compound, which becomes the *primary* reading:
+
+- `KOPFKOPF` → **Doppelkopf** (Kartenspiel), not „Kopf an Kopf"
+- `TÜRTÜR` → Doppeltür, not „Tür an Tür"
+- `PUNKTPUNKT` → Doppelpunkt
+- `HERZHERZ` → Doppelherz
+
+Before reusing the `XX` → „X an X" pattern, check whether `Doppel-X` is an established German word. If yes, either:
+1. Embrace it — make the answer „Doppel-X" (it's a real `numbers` dingbat: two = doppelt).
+2. Change the visual so the idiom reading is forced (insert a separator like a wall `🧱` or `│`, or mirror one to mean „gegen").
+
+Safe doublings (no `Doppel-X` collision): `HAND HAND` → Hand in Hand, `SCHULTER SCHULTER` → Schulter an Schulter, `STEIN STEIN STEIN` → Stein auf Stein, `MANN MANN` (mirrored) → Mann gegen Mann.
+
+### Solutions must come from German linguistic instinct
+
+Answer, mechanic, and idiom all need to arise from **German Sprichwörter, Redewendungen, common compounds, and cultural expressions** — not translated English idioms. If a puzzle only makes sense via English homophones or English-only sayings (e.g., literal translations of „cool as a cucumber"), it does not belong in the German deck. When unsure, ask: would a native German speaker recognize both the visual setup *and* the answer as everyday German?
+
 ## Tags
 
 - First tag is the technique (used for grid distribution): `numbers`, `phrase`, `idiom`, `direction`, `letters`, `classic`, `scramble`, etc.
