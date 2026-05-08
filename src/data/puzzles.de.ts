@@ -5,6 +5,7 @@ const BLUE = '#1976d2';
 const GREEN = '#2e7d32';
 const YELLOW = '#f9a825';
 const BROWN = '#5d4037';
+const GRAY = '#9e9e9e';
 const ACCENT = '#7b1fa2';
 
 /**
@@ -1043,6 +1044,400 @@ export const PUZZLES_DE: readonly Puzzle[] = [
           rotate: -15,
           segments: [
             { text: '✗', style: ['bold'], color: RED },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: 'de-spr-kopf-durch-wand',
+    answer: 'Mit dem Kopf durch die Wand',
+    alternatives: [
+      'Mit dem Kopf durch die Wand wollen',
+      'Den Kopf durch die Wand',
+      'Kopf durch die Wand',
+    ],
+    difficulty: 'medium',
+    tags: ['idiom', 'sprichwort'],
+    explanation: 'KOPF stößt mit 💥 durch eine zerbrochene WAND.',
+    meaning: 'Stur den eigenen Willen durchsetzen, ohne Rücksicht auf Hindernisse.',
+    visual: {
+      kind: 'compose',
+      layers: [
+        {
+          x: 0.5,
+          y: 0.5,
+          scale: 1.6,
+          segments: [
+            { text: '▓▓▓', color: BROWN },
+            { text: '       ' },
+            { text: '▓▓▓', color: BROWN },
+          ],
+        },
+        {
+          x: 0.5,
+          y: 0.5,
+          scale: 1.3,
+          segments: [
+            { text: 'KOPF', style: ['bold', 'box'] },
+          ],
+        },
+        {
+          x: 0.74,
+          y: 0.42,
+          scale: 1.2,
+          rotate: 15,
+          segments: [
+            { text: '💥' },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: 'de-spr-katze-im-sack',
+    answer: 'Die Katze im Sack kaufen',
+    alternatives: [
+      'Katze im Sack kaufen',
+      'Die Katze im Sack',
+      'Katze im Sack',
+    ],
+    difficulty: 'medium',
+    tags: ['idiom', 'sprichwort'],
+    explanation: 'Eine 🐈 sitzt mitten im Wort SACK.',
+    meaning: 'Etwas blind erwerben, ohne es vorher geprüft zu haben.',
+    visual: {
+      kind: 'compose',
+      layers: [
+        {
+          x: 0.32,
+          y: 0.5,
+          scale: 1.7,
+          segments: [
+            { text: 'S', style: ['bold'] },
+          ],
+        },
+        {
+          x: 0.5,
+          y: 0.5,
+          scale: 1.3,
+          segments: [
+            { text: '🐈' },
+          ],
+        },
+        {
+          x: 0.7,
+          y: 0.5,
+          scale: 1.7,
+          segments: [
+            { text: 'ACK', style: ['bold'] },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: 'de-spr-pi-mal-daumen',
+    answer: 'Pi mal Daumen',
+    alternatives: ['π mal Daumen', 'Pi-mal-Daumen'],
+    difficulty: 'easy',
+    tags: ['idiom', 'sprichwort'],
+    explanation: 'π × 👍 → Pi mal Daumen.',
+    meaning: 'Eine grobe Schätzung ohne genaue Berechnung.',
+    visual: {
+      kind: 'compose',
+      layers: [
+        {
+          x: 0.28,
+          y: 0.5,
+          scale: 2.2,
+          segments: [
+            { text: 'π', style: ['bold'], color: ACCENT },
+          ],
+        },
+        {
+          x: 0.5,
+          y: 0.5,
+          scale: 1.4,
+          segments: [
+            { text: '×', style: ['bold'], color: RED },
+          ],
+        },
+        {
+          x: 0.72,
+          y: 0.5,
+          scale: 1.7,
+          segments: [
+            { text: '👍' },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: 'de-spr-schraube-locker',
+    answer: 'Eine Schraube locker haben',
+    alternatives: [
+      'Schraube locker',
+      'Du hast eine Schraube locker',
+      'Eine Schraube locker',
+    ],
+    difficulty: 'medium',
+    tags: ['idiom', 'sprichwort'],
+    explanation: 'Im KOPF sitzt eine schief verkippte 🔩.',
+    meaning: 'Sonderbar oder verrückt sein – nicht ganz richtig im Kopf.',
+    visual: {
+      kind: 'compose',
+      layers: [
+        {
+          x: 0.5,
+          y: 0.55,
+          scale: 1.7,
+          segments: [
+            { text: 'KOPF', style: ['bold', 'box'] },
+          ],
+        },
+        {
+          x: 0.5,
+          y: 0.32,
+          scale: 1.4,
+          rotate: 35,
+          segments: [
+            { text: '🔩' },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: 'de-spr-frosch-im-hals',
+    answer: 'Einen Frosch im Hals haben',
+    alternatives: [
+      'Frosch im Hals',
+      'Einen Frosch im Hals',
+      'Frosch im Hals haben',
+    ],
+    difficulty: 'easy',
+    tags: ['idiom', 'sprichwort'],
+    explanation: 'Im HALS sitzt ein 🐸.',
+    meaning: 'Heiser sein, ein Räuspern haben.',
+    visual: {
+      kind: 'compose',
+      layers: [
+        {
+          x: 0.5,
+          y: 0.6,
+          scale: 1.8,
+          segments: [
+            { text: 'HALS', style: ['bold'] },
+          ],
+        },
+        {
+          x: 0.5,
+          y: 0.38,
+          scale: 1.5,
+          segments: [
+            { text: '🐸' },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: 'de-spr-zum-affen-machen',
+    answer: 'Sich zum Affen machen',
+    alternatives: [
+      'Zum Affen machen',
+      'Du machst dich zum Affen',
+      'Sich zum Affen',
+    ],
+    difficulty: 'medium',
+    tags: ['idiom', 'sprichwort'],
+    explanation: 'ICH verwandelt sich (→) in einen 🐒.',
+    meaning: 'Sich lächerlich machen, sich blamieren.',
+    visual: {
+      kind: 'compose',
+      layers: [
+        {
+          x: 0.25,
+          y: 0.5,
+          scale: 1.7,
+          segments: [
+            { text: 'ICH', style: ['bold'] },
+          ],
+        },
+        {
+          x: 0.5,
+          y: 0.5,
+          scale: 1.5,
+          segments: [
+            { text: '→', style: ['bold'], color: RED },
+          ],
+        },
+        {
+          x: 0.75,
+          y: 0.5,
+          scale: 2.2,
+          segments: [
+            { text: '🐒' },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: 'de-spr-stier-hoernern-packen',
+    answer: 'Den Stier bei den Hörnern packen',
+    alternatives: [
+      'Den Stier bei den Hoernern packen',
+      'Stier bei den Hörnern packen',
+      'Stier bei den Hoernern packen',
+      'Den Stier an den Hörnern packen',
+      'Den Stier an den Hoernern packen',
+    ],
+    difficulty: 'hard',
+    tags: ['idiom', 'sprichwort'],
+    explanation: 'Zwei ✋ packen einen 🐂 an seinen Hörnern.',
+    meaning: 'Eine schwierige Sache mutig und entschlossen angehen.',
+    visual: {
+      kind: 'compose',
+      layers: [
+        {
+          x: 0.5,
+          y: 0.58,
+          scale: 2.6,
+          segments: [
+            { text: '🐂' },
+          ],
+        },
+        {
+          x: 0.32,
+          y: 0.32,
+          scale: 1.4,
+          rotate: -25,
+          segments: [
+            { text: '✋' },
+          ],
+        },
+        {
+          x: 0.68,
+          y: 0.32,
+          scale: 1.4,
+          rotate: 25,
+          segments: [
+            { text: '✋' },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: 'de-spr-wald-baeume',
+    answer: 'Den Wald vor lauter Bäumen nicht sehen',
+    alternatives: [
+      'Den Wald vor lauter Baeumen nicht sehen',
+      'Wald vor lauter Bäumen',
+      'Wald vor lauter Baeumen',
+      'Den Wald vor Bäumen nicht sehen',
+    ],
+    difficulty: 'hard',
+    tags: ['idiom', 'sprichwort'],
+    explanation: 'Viele 🌲 verdecken das Wort WALD in der Mitte.',
+    meaning: 'So fixiert auf Details sein, dass man das Ganze übersieht.',
+    visual: {
+      kind: 'compose',
+      layers: [
+        { x: 0.1, y: 0.55, scale: 1.6, segments: [{ text: '🌲' }] },
+        { x: 0.25, y: 0.45, scale: 1.8, segments: [{ text: '🌲' }] },
+        { x: 0.4, y: 0.55, scale: 1.5, segments: [{ text: '🌲' }] },
+        {
+          x: 0.5,
+          y: 0.5,
+          scale: 0.9,
+          segments: [
+            { text: 'WALD', style: ['bold'], color: GREEN },
+          ],
+        },
+        { x: 0.6, y: 0.55, scale: 1.5, segments: [{ text: '🌲' }] },
+        { x: 0.75, y: 0.45, scale: 1.8, segments: [{ text: '🌲' }] },
+        { x: 0.9, y: 0.55, scale: 1.6, segments: [{ text: '🌲' }] },
+      ],
+    },
+  },
+  {
+    id: 'de-spr-grosser-fuss',
+    answer: 'Auf großem Fuß leben',
+    alternatives: [
+      'Auf grossem Fuss leben',
+      'Auf großem Fuß',
+      'Auf grossem Fuss',
+    ],
+    difficulty: 'medium',
+    tags: ['idiom', 'sprichwort'],
+    explanation: 'ICH steht auf einem riesigen 🦶.',
+    meaning: 'Im Luxus oder verschwenderisch leben.',
+    visual: {
+      kind: 'compose',
+      layers: [
+        {
+          x: 0.5,
+          y: 0.65,
+          scale: 3.5,
+          segments: [
+            { text: '🦶' },
+          ],
+        },
+        {
+          x: 0.5,
+          y: 0.28,
+          scale: 1.4,
+          segments: [
+            { text: 'ICH', style: ['bold'] },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: 'de-spr-eigenen-schatten-springen',
+    answer: 'Über den eigenen Schatten springen',
+    alternatives: [
+      'Ueber den eigenen Schatten springen',
+      'Über seinen Schatten springen',
+      'Ueber seinen Schatten springen',
+      'Über den eigenen Schatten',
+      'Ueber den eigenen Schatten',
+    ],
+    difficulty: 'hard',
+    tags: ['idiom', 'sprichwort'],
+    explanation: 'Großes ICH springt (↑) über ein graues, geneigtes ICH – seinen Schatten.',
+    meaning: 'Sich selbst überwinden, etwas tun, was einem schwerfällt.',
+    visual: {
+      kind: 'compose',
+      layers: [
+        {
+          x: 0.5,
+          y: 0.32,
+          scale: 1.5,
+          segments: [
+            { text: 'ICH', style: ['bold'] },
+          ],
+        },
+        {
+          x: 0.5,
+          y: 0.5,
+          scale: 1.6,
+          segments: [
+            { text: '↑', style: ['bold'], color: GREEN },
+          ],
+        },
+        {
+          x: 0.5,
+          y: 0.7,
+          scale: 0.9,
+          rotate: -25,
+          segments: [
+            { text: 'ICH', style: ['italic'], color: GRAY },
           ],
         },
       ],
