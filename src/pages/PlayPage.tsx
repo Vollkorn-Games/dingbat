@@ -245,12 +245,28 @@ export function PlayPage(): React.ReactElement {
           <Alert severity="success" variant="filled" sx={{ overflowWrap: 'anywhere' }}>
             {t.correctAnswer(puzzle.answer)}
             {puzzle.explanation !== undefined ? ` ${puzzle.explanation}` : ''}
+            {puzzle.meaning !== undefined ? (
+              <Box
+                component="span"
+                sx={{ display: 'block', mt: 0.75, fontStyle: 'italic', opacity: 0.92 }}
+              >
+                {puzzle.meaning}
+              </Box>
+            ) : null}
           </Alert>
         ) : null}
         {revealed && feedback !== 'correct' ? (
           <Alert severity="info" variant="outlined" sx={{ overflowWrap: 'anywhere' }}>
             {t.revealAnswer(puzzle.answer)}
             {puzzle.explanation !== undefined ? ` ${puzzle.explanation}` : ''}
+            {puzzle.meaning !== undefined ? (
+              <Box
+                component="span"
+                sx={{ display: 'block', mt: 0.75, fontStyle: 'italic', opacity: 0.85 }}
+              >
+                {puzzle.meaning}
+              </Box>
+            ) : null}
           </Alert>
         ) : null}
         {hintText !== null && feedback !== 'correct' && !revealed ? (

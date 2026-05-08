@@ -75,8 +75,14 @@ export interface Puzzle {
   difficulty: Difficulty;
   /** Free-form category labels. */
   tags?: readonly string[];
-  /** Optional explanation shown on the reveal screen. */
+  /** Optional explanation of the *trick* — how the visual maps to the
+   *  answer. Shown on the reveal screen. */
   explanation?: string;
+  /** Optional gloss of the *answer's meaning*, for puzzles whose solution
+   *  isn't self-evident: fairy-tale terms, regional slang, dated idioms.
+   *  Shown alongside the explanation. Skip when the meaning is obvious
+   *  from everyday usage. */
+  meaning?: string;
   /** Where the puzzle came from (URL or attribution). */
   source?: string;
   visual: PuzzleVisual;

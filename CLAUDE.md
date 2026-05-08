@@ -19,6 +19,7 @@ A puzzle is **not a dingbat** if any of the following is true:
 4. **Connecting word printed verbatim** — `AUGE um AUGE` → "Auge um Auge". The visible "um" defeats the puzzle. The connector must be inferred from spatial arrangement, not spelled out.
 5. **Self-referential transformation** — `KEHRSEITE` flipped → "Kehrseite", `RÜCKWÄRTS` mirrored → "Rückwärts". The answer just describes the visual operation. The transformation must yield a *different* word.
 6. **Sized labels** — `VATER` huge → "Großvater", `KIND` tiny → "Kleinkind". The size adjective is just labeled onto the word.
+7. **Compound noun + cosmetic digit substitution** — `7MEILENSTIEFEL` → "Siebenmeilenstiefel". The compound noun stands there literally; only one syllable is dressed up as a digit. The player just swaps "7→sieben" and reads the rest. This is *especially* tempting for `<digit>+<noun>` compounds: `7SACHEN` → Siebensachen, `10KAMPF` → Zehnkampf, `9LEBEN` → Neunleben. Either drop the puzzle, or rebuild it with **quantity counting** (Pattern #8) where the player has to count actual repeated/varied items to derive the number — not just decode a digit.
 
 If any of those apply, fix it or drop it.
 
@@ -48,7 +49,7 @@ If any of those apply, fix it or drop it.
    `READING` between two horizontal lines → "Reading between the lines". `STEIN ↓ HERZ` → "Stein vom Herzen" (the falling arrow is "vom"). `🍅🍅 / AUGEN` → "Tomaten auf den Augen". The scene depicts the idiom; the answer names it.
 
 8. **Quantity counting as a syllable / number.**
-   `CYCLE CYCLE CYCLE` → "Tricycle" (three cycles). `GIVING × 4` → "Forgiving" (four-giving). `7 SACHEN` → "Siebensachen". Repetition count *is* the number word in the answer.
+   `CYCLE CYCLE CYCLE` → "Tricycle" (three cycles). `GIVING × 4` → "Forgiving" (four-giving). `🧳📚🎒👔🧦☂🪥` (seven different items) → "Siebensachen". The player must **count actual items** to derive the number — `🏃🏊🚴🤸🏋🥊⛹🏐🏌⚽` (ten sports) → "Zehnkampf". Note: `7 SACHEN` (the digit "7" next to the word "SACHEN") is **not** quantity-counting, it's the cosmetic-digit trap (fail test #7).
 
 9. **Style/styling encoding a word.**
    `BIRNE` between sparkles → "Glühbirne" (the sparkles are the "glüh"). `KORN` rendered fat → "Vollkorn" (fat = voll). Be careful: this is borderline. The styling must read as a metaphor for a *separate* word, not as a description of the visible word.
@@ -90,11 +91,18 @@ The only valid German digit substitutions are the ones where the spoken digit na
 | 2 | zwei | `2FEL` → Zweifel |
 | 3 | drei | `3ECK` → Dreieck |
 | 4 | vier | `4TEL` → Viertel — **never „für"!** |
-| 7 | sieben | `7SACHEN` → Siebensachen |
+| 7 | sieben | (digit alone is weak — see below) |
 | 8 | acht | `8UNG` → Achtung; `M8` → Macht; `N8` → Nacht; `GEM8` → gemacht; `OHNM8` → Ohnmacht |
-| 10 | zehn | `10KAMPF` → Zehnkampf |
+| 10 | zehn | (digit alone is weak — see below) |
 
 **Forbidden in German**: `4 = für`, `8 = ate`, `2 = to/too`, or any substitution that only works as an English homophone. The test: silently pronounce the digit in German — the German number word that comes out must be exactly the syllable the answer needs. If you have to switch languages in your head, the puzzle is wrong.
+
+**When digit-prefix to a noun fails**: `7SACHEN` → "Siebensachen", `10KAMPF` → "Zehnkampf", `7MEILENSTIEFEL` → "Siebenmeilenstiefel" — these all collapse into fail test #7. The compound noun stands there fully, only the prefix is a digit, the player does no work. Two paths out:
+
+1. **Use quantity counting (Pattern #8) instead**: show seven different item emojis for Siebensachen, ten different sport emojis for Zehnkampf — the count itself becomes the inference.
+2. **Drop the puzzle**: not every German compound makes a workable dingbat. Märchen-words like Siebenmeilenstiefel are best as image assets if you really want them.
+
+The digit-prefix pattern is only fine when the *result* is a single fused word that sounds nothing like its parts (`M8` → Macht, `N8` → Nacht, `1FACH` → einfach), forcing the player to identify the new word — not when the answer is just `<NumberWord><Noun>` glued together.
 
 ### Connectors that are NOT visually encodable in German
 
@@ -163,7 +171,8 @@ The canvas is 600×450 (4:3) and is auto-fit-scaled to whatever container size t
 - `alternatives`: ASCII fallbacks for `ä→ae`, `ö→oe`, `ü→ue`, `ß→ss`; common rephrasings (with/without article); digit/word swaps (`Catch 22` / `Catch twenty-two`).
 - `difficulty`: `easy` | `medium` | `hard`. Calibrate honestly — if the trick clicks instantly, it's easy.
 - `tags`: technique first, content second.
-- `explanation`: one short line in the puzzle's language explaining the trick.
+- `explanation`: one short line in the puzzle's language explaining the *trick* — how the visual encodes the answer.
+- `meaning` (optional): one short line glossing the *answer itself*, for solutions that aren't self-evident — fairy-tale terms („Siebenmeilenstiefel"), dated idioms („einen Stein im Brett haben"), regional slang. Skip when the meaning is obvious from everyday usage (don't gloss „Schmetterlinge im Bauch" or „Hand in Hand"). Shown italicized below `explanation` on the reveal screen.
 
 ## When updating decks
 

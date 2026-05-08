@@ -5,7 +5,6 @@ const BLUE = '#1976d2';
 const GREEN = '#2e7d32';
 const YELLOW = '#f9a825';
 const BROWN = '#5d4037';
-const BLACK = '#000000';
 const ACCENT = '#7b1fa2';
 
 /**
@@ -206,37 +205,45 @@ export const PUZZLES_DE: readonly Puzzle[] = [
     },
   },
   {
-    id: 'de-num-siebensachen',
+    id: 'de-num-siebensachen-v2',
     answer: 'Siebensachen',
-    alternatives: ['siebensachen', 'sieben Sachen'],
+    alternatives: ['siebensachen', 'sieben Sachen', 'meine Siebensachen'],
     difficulty: 'medium',
     tags: ['numbers', 'redewendung'],
-    explanation: '7 (sieben) + SACHEN = Siebensachen.',
+    explanation: 'Sieben verschiedene Habseligkeiten – Siebensachen.',
+    meaning: 'Umgangssprachlich für alle persönlichen Habseligkeiten – „seine Siebensachen packen".',
     visual: {
       kind: 'text',
       lines: [
         {
+          align: 'center',
           segments: [
-            { text: '7', style: ['bold', 'huge'], color: GREEN },
-            { text: 'SACHEN', style: ['bold', 'huge'] },
+            { text: '🧳 📚 🎒 👔 🧦 ☂ 🪥', style: ['huge'] },
           ],
         },
       ],
     },
   },
   {
-    id: 'de-num-zehnkampf',
+    id: 'de-num-zehnkampf-v2',
     answer: 'Zehnkampf',
-    difficulty: 'medium',
+    difficulty: 'hard',
     tags: ['numbers', 'sport'],
-    explanation: '10 (zehn) + KAMPF = Zehnkampf.',
+    explanation: 'Zehn verschiedene Sportarten – Zehnkampf.',
+    meaning: 'Olympische Leichtathletik-Disziplin aus zehn verschiedenen Wettkämpfen.',
     visual: {
       kind: 'text',
       lines: [
         {
+          align: 'center',
           segments: [
-            { text: '10', style: ['bold', 'huge'], color: BLUE },
-            { text: 'KAMPF', style: ['bold', 'huge'] },
+            { text: '🏃 🏊 🚴 🤸 🏋', style: ['huge'] },
+          ],
+        },
+        {
+          align: 'center',
+          segments: [
+            { text: '🥊 ⛹ 🏐 🏌 ⚽', style: ['huge'] },
           ],
         },
       ],
@@ -274,25 +281,6 @@ export const PUZZLES_DE: readonly Puzzle[] = [
           segments: [
             { text: 'OHNM', style: ['bold', 'huge'] },
             { text: '8', style: ['bold', 'huge'], color: ACCENT },
-          ],
-        },
-      ],
-    },
-  },
-  {
-    id: 'de-num-siebenmeilenstiefel',
-    answer: 'Siebenmeilenstiefel',
-    difficulty: 'hard',
-    tags: ['numbers', 'maerchen'],
-    explanation: '7 (sieben) + MEILENSTIEFEL = Siebenmeilenstiefel.',
-    visual: {
-      kind: 'text',
-      lines: [
-        {
-          segments: [
-            { text: '7', style: ['bold', 'huge'], color: GREEN },
-            { text: 'MEILEN', style: ['bold', 'huge'] },
-            { text: 'STIEFEL', style: ['bold', 'huge'] },
           ],
         },
       ],
@@ -367,6 +355,7 @@ export const PUZZLES_DE: readonly Puzzle[] = [
     difficulty: 'easy',
     tags: ['phrase', 'repetition'],
     explanation: 'Drei STEINE übereinander – Stein auf Stein.',
+    meaning: 'Etwas geduldig Schritt für Schritt aufbauen.',
     visual: {
       kind: 'text',
       lines: [
@@ -441,6 +430,7 @@ export const PUZZLES_DE: readonly Puzzle[] = [
     difficulty: 'medium',
     tags: ['idiom', 'spatial'],
     explanation: '„HAND" über „HERZ" – Hand aufs Herz.',
+    meaning: 'Aufrichtig versprechen, ganz ehrlich sein.',
     visual: {
       kind: 'text',
       lines: [
@@ -456,6 +446,7 @@ export const PUZZLES_DE: readonly Puzzle[] = [
     difficulty: 'hard',
     tags: ['idiom', 'spatial'],
     explanation: '„KOPF" mitten im Wort „WOLKEN" – Kopf in den Wolken.',
+    meaning: 'Verträumt, abwesend, mit unrealistischen Vorstellungen.',
     visual: {
       kind: 'text',
       lines: [
@@ -477,6 +468,7 @@ export const PUZZLES_DE: readonly Puzzle[] = [
     difficulty: 'hard',
     tags: ['idiom', 'spatial'],
     explanation: '„STEIN" eingebettet im Wort „BRETT".',
+    meaning: 'Bei jemandem beliebt sein – Bild aus alten Brettspielen, wo Steine Spielfiguren waren.',
     visual: {
       kind: 'text',
       lines: [
@@ -674,6 +666,7 @@ export const PUZZLES_DE: readonly Puzzle[] = [
     difficulty: 'easy',
     tags: ['idiom', 'sprichwort'],
     explanation: 'Ein STEIN fällt (↓) vom HERZ.',
+    meaning: 'Große Erleichterung empfinden, wenn eine Sorge wegfällt.',
     visual: {
       kind: 'text',
       lines: [
@@ -690,6 +683,7 @@ export const PUZZLES_DE: readonly Puzzle[] = [
     difficulty: 'easy',
     tags: ['idiom', 'sprichwort'],
     explanation: 'ICH schwebt über „WOLKE 7".',
+    meaning: 'Überglücklich, oft frisch verliebt – im Zustand höchster Glückseligkeit.',
     visual: {
       kind: 'text',
       lines: [
@@ -705,6 +699,7 @@ export const PUZZLES_DE: readonly Puzzle[] = [
     difficulty: 'easy',
     tags: ['idiom', 'sprichwort'],
     explanation: '🍅🍅 sitzen auf den AUGEN.',
+    meaning: 'Etwas Offensichtliches einfach nicht sehen.',
     visual: {
       kind: 'text',
       lines: [
@@ -720,6 +715,7 @@ export const PUZZLES_DE: readonly Puzzle[] = [
     difficulty: 'medium',
     tags: ['idiom', 'sprichwort'],
     explanation: '🦋 im Inneren von BAUCH.',
+    meaning: 'Aufgeregtes Kribbeln im Bauch – meist beim Verliebtsein.',
     visual: {
       kind: 'text',
       lines: [
@@ -741,6 +737,7 @@ export const PUZZLES_DE: readonly Puzzle[] = [
     difficulty: 'medium',
     tags: ['idiom', 'sprichwort'],
     explanation: 'BRETT steht direkt vor KOPF.',
+    meaning: 'Begriffsstutzig sein, einen Denkblock haben, das Naheliegende nicht erkennen.',
     visual: {
       kind: 'text',
       lines: [
@@ -762,6 +759,7 @@ export const PUZZLES_DE: readonly Puzzle[] = [
     difficulty: 'medium',
     tags: ['idiom', 'sprichwort'],
     explanation: 'KOPF steckt unter der SAND-Linie – kopfüber.',
+    meaning: 'Probleme oder die Realität verdrängen, statt sich ihnen zu stellen.',
     visual: {
       kind: 'text',
       lines: [
@@ -777,6 +775,7 @@ export const PUZZLES_DE: readonly Puzzle[] = [
     difficulty: 'easy',
     tags: ['idiom', 'sprichwort'],
     explanation: 'ALLES sitzt mitten in BUTTER.',
+    meaning: 'Alles ist in bester Ordnung – stammt aus einer Zeit, als Glasware in Butter eingegossen sicher transportiert wurde.',
     visual: {
       kind: 'text',
       lines: [
@@ -803,6 +802,7 @@ export const PUZZLES_DE: readonly Puzzle[] = [
     difficulty: 'medium',
     tags: ['idiom', 'sprichwort'],
     explanation: '👁 schaut über den Rand des TELLER hinaus.',
+    meaning: 'Über den eigenen Horizont hinaus denken, neue Perspektiven einnehmen.',
     visual: {
       kind: 'text',
       lines: [
@@ -818,6 +818,7 @@ export const PUZZLES_DE: readonly Puzzle[] = [
     difficulty: 'medium',
     tags: ['idiom', 'sprichwort'],
     explanation: 'Die Buchstaben von FADEN trudeln nach unten weg.',
+    meaning: 'Den Gedankengang oder den roten Faden im Gespräch verlieren.',
     visual: {
       kind: 'text',
       lines: [
@@ -839,6 +840,7 @@ export const PUZZLES_DE: readonly Puzzle[] = [
     difficulty: 'medium',
     tags: ['idiom', 'sprichwort'],
     explanation: 'Ein BLITZ ⚡ schlägt aus dem HIMMEL.',
+    meaning: 'Völlig unerwartet, ohne Vorwarnung – wie ein Blitz bei klarem Himmel.',
     visual: {
       kind: 'text',
       lines: [
@@ -854,6 +856,7 @@ export const PUZZLES_DE: readonly Puzzle[] = [
     difficulty: 'hard',
     tags: ['idiom', 'sprichwort'],
     explanation: 'NAGEL trifft mit ↓ direkt auf KOPF.',
+    meaning: 'Etwas exakt auf den Punkt bringen, einen Sachverhalt präzise treffen.',
     visual: {
       kind: 'text',
       lines: [
@@ -870,6 +873,7 @@ export const PUZZLES_DE: readonly Puzzle[] = [
     difficulty: 'medium',
     tags: ['idiom', 'sprichwort'],
     explanation: 'Die Zahl 4 steht über AUGEN.',
+    meaning: 'Vertraulich, nur zu zweit – ohne dass jemand mithört.',
     visual: {
       kind: 'text',
       lines: [
@@ -886,6 +890,7 @@ export const PUZZLES_DE: readonly Puzzle[] = [
     difficulty: 'hard',
     tags: ['idiom', 'sprichwort'],
     explanation: 'HUND liegt unter der Erdlinie, kopfüber.',
+    meaning: 'Hier liegt die wahre Ursache eines Problems – das ist der entscheidende Punkt.',
     visual: {
       kind: 'text',
       lines: [
@@ -901,6 +906,7 @@ export const PUZZLES_DE: readonly Puzzle[] = [
     difficulty: 'hard',
     tags: ['idiom', 'sprichwort'],
     explanation: 'ICH steht außerhalb eines kleinen HAUS.',
+    meaning: 'Vor Aufregung oder Freude völlig außer sich sein.',
     visual: {
       kind: 'text',
       lines: [
@@ -922,6 +928,7 @@ export const PUZZLES_DE: readonly Puzzle[] = [
     difficulty: 'hard',
     tags: ['idiom', 'sprichwort'],
     explanation: 'ICH steht oberhalb von BERG.',
+    meaning: 'Das Schlimmste überstanden haben – die schwierigste Phase liegt hinter einem.',
     visual: {
       kind: 'text',
       lines: [
@@ -946,6 +953,7 @@ export const PUZZLES_DE: readonly Puzzle[] = [
     difficulty: 'medium',
     tags: ['idiom', 'sprichwort'],
     explanation: 'Über zwei Ohren wird etwas geschrieben.',
+    meaning: 'Sich etwas gut einprägen, damit man es nicht wieder vergisst.',
     visual: {
       kind: 'compose',
       layers: [
@@ -978,6 +986,7 @@ export const PUZZLES_DE: readonly Puzzle[] = [
     difficulty: 'easy',
     tags: ['idiom', 'sprichwort'],
     explanation: 'Im Kopf sitzt ein Vogel.',
+    meaning: 'Sonderbar, leicht verrückt sein – nicht ganz richtig im Kopf.',
     visual: {
       kind: 'compose',
       layers: [
@@ -1013,6 +1022,7 @@ export const PUZZLES_DE: readonly Puzzle[] = [
     difficulty: 'medium',
     tags: ['idiom', 'sprichwort'],
     explanation: 'Eines von zwei AUGEN ist durchgestrichen – zugedrückt.',
+    meaning: 'Bei einem kleinen Vergehen großzügig hinwegsehen, nicht streng sein.',
     visual: {
       kind: 'compose',
       layers: [
@@ -1241,26 +1251,6 @@ export const PUZZLES_DE: readonly Puzzle[] = [
             { text: '✨', style: ['huge'] },
             { text: 'BIRNE', style: ['bold', 'huge'], color: YELLOW },
             { text: '✨', style: ['huge'] },
-          ],
-        },
-      ],
-    },
-  },
-  {
-    id: 'de-schwarzweiss',
-    answer: 'Schwarzweiß',
-    alternatives: ['Schwarzweiss', 'schwarz weiß'],
-    difficulty: 'medium',
-    tags: ['classic'],
-    explanation: 'Halb schwarz, halb weiß.',
-    visual: {
-      kind: 'text',
-      lines: [
-        {
-          segments: [
-            { text: 'SCHWARZ', style: ['bold', 'huge', 'fat'], color: BLACK },
-            { text: ' ', style: ['huge'] },
-            { text: 'WEIß', style: ['bold', 'huge', 'outline'] },
           ],
         },
       ],
