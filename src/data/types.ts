@@ -35,12 +35,35 @@ export interface PuzzleLine {
 }
 
 /**
- * A typographic puzzle is rendered from data — letters, sizes, positions.
- * An image puzzle is a static asset (place files under public/puzzles/).
+ * One free-positioned text fragment inside a `compose` visual. Use this
+ * when a puzzle needs overlapping, rotated, or scaled layers — e.g.
+ * cursive script across a word, an icon dropped into specific spot, a
+ * stamp angled across letters. Coordinates are fractions of the canvas
+ * (0 = top/left, 1 = bottom/right) and refer to the layer's center.
+ */
+export interface PuzzleComposeLayer {
+  segments: readonly PuzzleSegment[];
+  /** Horizontal center, fraction of the canvas (0..1). */
+  x: number;
+  /** Vertical center, fraction of the canvas (0..1). */
+  y: number;
+  /** Multiplier on the base font size. Default 1. */
+  scale?: number;
+  /** Rotation around the layer's own center, in degrees. Default 0. */
+  rotate?: number;
+}
+
+/**
+ * A typographic puzzle (`text`) is rendered as stacked lines of segments.
+ * An image puzzle (`image`) is a static asset under public/puzzles/.
+ * A composed puzzle (`compose`) places independently positioned, scaled,
+ * and rotated text layers on a canvas — for overlapping or off-grid
+ * arrangements that line-based layout can't express.
  */
 export type PuzzleVisual =
   | { kind: 'text'; lines: readonly PuzzleLine[] }
-  | { kind: 'image'; src: string; alt: string };
+  | { kind: 'image'; src: string; alt: string }
+  | { kind: 'compose'; layers: readonly PuzzleComposeLayer[] };
 
 export interface Puzzle {
   /** Stable, URL-safe id. Never reuse or rename — used for progress tracking. */

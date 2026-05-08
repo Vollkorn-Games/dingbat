@@ -931,6 +931,114 @@ export const PUZZLES_DE: readonly Puzzle[] = [
     },
   },
 
+  // === Compose / overlay idioms ===========================================
+  // Geschichteter Visual-Stil: Hintergrund-Wort + Overlay-Layer (rotiert,
+  // skaliert, frei positioniert). Erlaubt Sprichwörter, die räumlich nicht
+  // mit Linien-Layout darstellbar sind.
+  {
+    id: 'de-spr-hinter-die-ohren-schreiben',
+    answer: 'Sich etwas hinter die Ohren schreiben',
+    alternatives: [
+      'Sich das hinter die Ohren schreiben',
+      'Hinter die Ohren schreiben',
+      'Etwas hinter die Ohren schreiben',
+    ],
+    difficulty: 'medium',
+    tags: ['idiom', 'sprichwort'],
+    explanation: 'Über zwei Ohren wird etwas geschrieben.',
+    visual: {
+      kind: 'compose',
+      layers: [
+        {
+          x: 0.5,
+          y: 0.55,
+          scale: 1.6,
+          segments: [
+            { text: 'OHR', style: ['bold'] },
+            { text: '   ' },
+            { text: 'OHR', style: ['bold'] },
+          ],
+        },
+        {
+          x: 0.45,
+          y: 0.32,
+          scale: 0.85,
+          rotate: -8,
+          segments: [
+            { text: '✎ Notiz!', style: ['italic'], color: ACCENT },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: 'de-spr-einen-vogel-haben',
+    answer: 'Einen Vogel haben',
+    alternatives: ['Du hast einen Vogel', 'Einen Vogel'],
+    difficulty: 'easy',
+    tags: ['idiom', 'sprichwort'],
+    explanation: 'Im Kopf sitzt ein Vogel.',
+    visual: {
+      kind: 'compose',
+      layers: [
+        {
+          x: 0.5,
+          y: 0.55,
+          scale: 1.7,
+          segments: [
+            { text: 'KOPF', style: ['bold', 'box'] },
+          ],
+        },
+        {
+          x: 0.5,
+          y: 0.28,
+          scale: 1.4,
+          rotate: -12,
+          segments: [
+            { text: '🐦', style: [] },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: 'de-spr-auge-zudruecken',
+    answer: 'Ein Auge zudrücken',
+    alternatives: [
+      'Ein Auge zudruecken',
+      'Beide Augen zudrücken',
+      'Auge zudrücken',
+      'Auge zudruecken',
+    ],
+    difficulty: 'medium',
+    tags: ['idiom', 'sprichwort'],
+    explanation: 'Eines von zwei AUGEN ist durchgestrichen – zugedrückt.',
+    visual: {
+      kind: 'compose',
+      layers: [
+        {
+          x: 0.5,
+          y: 0.5,
+          scale: 1.4,
+          segments: [
+            { text: 'AUGE', style: ['bold'] },
+            { text: '   ' },
+            { text: 'AUGE', style: ['bold'] },
+          ],
+        },
+        {
+          x: 0.32,
+          y: 0.5,
+          scale: 1.8,
+          rotate: -15,
+          segments: [
+            { text: '✗', style: ['bold'], color: RED },
+          ],
+        },
+      ],
+    },
+  },
+
   // === Carried over from the old deck (still real dingbats) ================
   {
     id: 'de-buchstabensalat',

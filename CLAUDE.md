@@ -131,6 +131,31 @@ Answer, mechanic, and idiom all need to arise from **German Sprichwörter, Redew
 
 `bold`, `italic`, `underline`, `overline`, `strike`, `small`, `tiny`, `huge`, `mega`, `fat`, `mirror`, `flip`, `rotate90`, `rotate180`, `rotate270`, `spaced`, `crammed`, `rainbow`, `box`, `outline`, `shadow`. Color is a hex string on the segment. The renderer auto-fits content to the box.
 
+## Visual layout types
+
+A puzzle's `visual` field picks one of three kinds:
+
+- **`text`** — stacked `lines` of `segments`. Default choice. Use when the puzzle is a single column of left/center/right-aligned rows of text.
+- **`image`** — static asset under `public/puzzles/`. Use when the visual is hand-drawn / illustrated and can't be expressed typographically (e.g., letters morphed into a silhouette, custom glyph distortions, hand-painted bite marks).
+- **`compose`** — free-positioned, scaled, rotated text layers on a fixed canvas. Use when text needs to **overlap, rotate, or sit at non-grid positions** that line layout can't express. Each `layer` has `x`/`y` (0..1 fractions of the canvas, referring to its center), optional `scale` (multiplier on base font size), and optional `rotate` (degrees).
+
+When to reach for `compose`: cursive text crossing a word („Hinter die Ohren schreiben" — `OHR  OHR` + rotated „✎ Notiz!" overlay), a stamp or strikethrough mark angled across letters („Ein Auge zudrücken" — `AUGE AUGE` + red `✗` rotated over one), an icon dropped *into* a box („Einen Vogel haben" — boxed `KOPF` + a bird above/inside). When `text` plus emoji/Unicode is enough — it usually is — stay with `text`. `compose` is for cases where the *spatial relationship between layers* carries the meaning.
+
+Example:
+
+```ts
+visual: {
+  kind: 'compose',
+  layers: [
+    { x: 0.5, y: 0.55, scale: 1.6, segments: [{ text: 'OHR   OHR', style: ['bold'] }] },
+    { x: 0.45, y: 0.32, scale: 0.85, rotate: -8,
+      segments: [{ text: '✎ Notiz!', style: ['italic'], color: ACCENT }] },
+  ],
+}
+```
+
+The canvas is 600×450 (4:3) and is auto-fit-scaled to whatever container size the card uses. Position and scale numbers are relative to that canvas, so the same `x: 0.5` always means horizontal center.
+
 ## Required fields
 
 - `id`: stable, URL-safe, prefixed (`de-num-`, `de-rep-`, `de-dir-`, `de-spr-` for new German puzzles; legacy English uses `kebab-case-of-answer`).

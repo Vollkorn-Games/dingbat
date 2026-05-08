@@ -1,11 +1,18 @@
 import { useRef } from 'react';
 import Box from '@mui/material/Box';
 import type {
+  PuzzleComposeLayer,
   PuzzleLine,
   PuzzleSegment,
   PuzzleVisual,
 } from '@/data/types';
 import { useFitScale } from '@/hooks/useFitScale';
+
+/** Fixed canvas size for `compose` visuals. Layers are positioned in
+ *  fractions of these dimensions; the whole stage scales to fit the
+ *  available container via `useFitScale`. */
+const COMPOSE_STAGE_W = 600;
+const COMPOSE_STAGE_H = 450;
 
 interface Props {
   visual: PuzzleVisual;
@@ -87,6 +94,28 @@ function Line({ line }: { line: PuzzleLine }): React.ReactElement {
   );
 }
 
+function ComposeLayerNode({ layer }: { layer: PuzzleComposeLayer }): React.ReactElement {
+  const scale = layer.scale ?? 1;
+  const rotate = layer.rotate ?? 0;
+  return (
+    <Box
+      sx={{
+        position: 'absolute',
+        left: `${(layer.x * 100).toString()}%`,
+        top: `${(layer.y * 100).toString()}%`,
+        transform: `translate(-50%, -50%) scale(${scale.toString()}) rotate(${rotate.toString()}deg)`,
+        transformOrigin: 'center center',
+        whiteSpace: 'nowrap',
+        lineHeight: 1.1,
+      }}
+    >
+      {layer.segments.map((seg, idx) => (
+        <Segment key={idx} segment={seg} />
+      ))}
+    </Box>
+  );
+}
+
 export function PuzzleRenderer({ visual, padding = 16 }: Props): React.ReactElement {
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -137,22 +166,38 @@ export function PuzzleRenderer({ visual, padding = 16 }: Props): React.ReactElem
     >
       <Box
         ref={contentRef}
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontFamily: '"Georgia","Times New Roman",serif',
-          fontSize: '2.4rem',
-          color: 'text.primary',
-          userSelect: 'none',
-          transform: `scale(${fit.toString()})`,
-          transformOrigin: 'center center',
-        }}
+        sx={
+          visual.kind === 'compose'
+            ? {
+                position: 'relative',
+                width: `${COMPOSE_STAGE_W.toString()}px`,
+                height: `${COMPOSE_STAGE_H.toString()}px`,
+                fontFamily: '"Georgia","Times New Roman",serif',
+                fontSize: '2.4rem',
+                color: 'text.primary',
+                userSelect: 'none',
+                transform: `scale(${fit.toString()})`,
+                transformOrigin: 'center center',
+              }
+            : {
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontFamily: '"Georgia","Times New Roman",serif',
+                fontSize: '2.4rem',
+                color: 'text.primary',
+                userSelect: 'none',
+                transform: `scale(${fit.toString()})`,
+                transformOrigin: 'center center',
+              }
+        }
       >
-        {visual.lines.map((line, idx) => (
-          <Line key={idx} line={line} />
-        ))}
+        {visual.kind === 'text'
+          ? visual.lines.map((line, idx) => <Line key={idx} line={line} />)
+          : visual.layers.map((layer, idx) => (
+              <ComposeLayerNode key={idx} layer={layer} />
+            ))}
       </Box>
     </Box>
   );
