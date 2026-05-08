@@ -14,8 +14,8 @@ importers:
       '@emotion/styled':
         specifier: ^11.13.5
         version: 11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react@18.3.1)
-      '@fontsource/roboto':
-        specifier: ^5.1.0
+      '@fontsource/vollkorn':
+        specifier: ^5.2.10
         version: 5.2.10
       '@mui/icons-material':
         specifier: ^6.1.10
@@ -413,8 +413,8 @@ packages:
     resolution: {integrity: sha512-43/qtrDUokr7LJqoF2c3+RInu/t4zfrpYdoSDfYyhg52rwLV6TnOvdG4fXm7IkSB3wErkcmJS9iEhjVtOSEjjA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@fontsource/roboto@5.2.10':
-    resolution: {integrity: sha512-8HlA5FtSfz//oFSr2eL7GFXAiE7eIkcGOtx7tjsLKq+as702x9+GU7K95iDeWFapHC4M2hv9RrpXKRTGGBI8Zg==}
+  '@fontsource/vollkorn@5.2.10':
+    resolution: {integrity: sha512-gSlz1yYmGkpSnfchXwbdkCnGFGnV2lKhA0Wc87kF95kA5ziOGLHCriQvDKZhExVC4/heeB6MdmVdyIW/e9Ab6A==}
 
   '@humanfs/core@0.19.2':
     resolution: {integrity: sha512-UhXNm+CFMWcbChXywFwkmhqjs3PRCmcSa/hfBgLIb7oQ5HNb1wS0icWsGtSAUNgefHeI+eBrA8I1fxmbHsGdvA==}
@@ -2180,7 +2180,7 @@ snapshots:
       '@eslint/core': 0.17.0
       levn: 0.4.1
 
-  '@fontsource/roboto@5.2.10': {}
+  '@fontsource/vollkorn@5.2.10': {}
 
   '@humanfs/core@0.19.2':
     dependencies:

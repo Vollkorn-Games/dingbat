@@ -128,14 +128,18 @@ export function PlayPage(): React.ReactElement {
       </Stack>
 
       <Paper
-        elevation={3}
+        elevation={0}
         sx={{
           aspectRatio: { xs: '1 / 1', sm: '4 / 3' },
           maxWidth: 720,
           mx: 'auto',
           width: '100%',
+          border: '1px solid',
+          borderColor: 'divider',
           backgroundImage:
-            'linear-gradient(135deg, rgba(25,118,210,0.06), rgba(156,39,176,0.06))',
+            'linear-gradient(140deg, rgba(250,237,205,0.6), rgba(254,250,224,0.9))',
+          boxShadow:
+            '0 1px 0 rgba(255,255,255,0.7) inset, 0 12px 28px rgba(58,46,29,0.10)',
         }}
       >
         <PuzzleRenderer visual={puzzle.visual} padding={24} />

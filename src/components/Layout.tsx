@@ -14,7 +14,7 @@ export function Layout(): React.ReactElement {
 
   return (
     <Box sx={{ minHeight: '100dvh', display: 'flex', flexDirection: 'column' }}>
-      <AppBar position="sticky" color="primary" elevation={1}>
+      <AppBar position="sticky">
         <Toolbar sx={{ gap: 1 }}>
           <Typography
             component={RouterLink}
@@ -22,14 +22,16 @@ export function Layout(): React.ReactElement {
             variant="h6"
             sx={{
               textDecoration: 'none',
-              color: 'inherit',
-              fontWeight: 800,
-              letterSpacing: '0.02em',
+              color: 'primary.dark',
+              fontWeight: 700,
+              letterSpacing: '0.01em',
               flexGrow: 1,
               minWidth: 0,
               overflow: 'hidden',
               whiteSpace: 'nowrap',
               textOverflow: 'ellipsis',
+              fontFamily: '"Vollkorn", serif',
+              fontStyle: 'italic',
             }}
           >
             {t.appName}
@@ -38,7 +40,6 @@ export function Layout(): React.ReactElement {
             value={language}
             exclusive
             size="small"
-            color="standard"
             onChange={(_, next: Language | null) => {
               if (next !== null) {
                 setLanguage(next);
@@ -47,17 +48,11 @@ export function Layout(): React.ReactElement {
             aria-label={t.language}
             sx={{
               '& .MuiToggleButton-root': {
-                color: 'rgba(255,255,255,0.85)',
-                borderColor: 'rgba(255,255,255,0.4)',
-                px: 1.25,
+                px: 1.5,
                 py: 0.25,
-                fontWeight: 700,
                 fontSize: '0.75rem',
                 textTransform: 'uppercase',
-              },
-              '& .Mui-selected': {
-                color: 'primary.main',
-                backgroundColor: 'rgba(255,255,255,0.95) !important',
+                letterSpacing: '0.06em',
               },
             }}
           >
@@ -72,8 +67,20 @@ export function Layout(): React.ReactElement {
       <Container maxWidth="lg" sx={{ flexGrow: 1, py: { xs: 2, sm: 4 } }}>
         <Outlet />
       </Container>
-      <Box component="footer" sx={{ py: 2, textAlign: 'center', color: 'text.secondary' }}>
-        <Typography variant="caption">{t.footer}</Typography>
+      <Box
+        component="footer"
+        sx={{
+          py: 2.5,
+          textAlign: 'center',
+          color: 'text.secondary',
+          borderTop: '1px solid',
+          borderColor: 'divider',
+          mt: 4,
+        }}
+      >
+        <Typography variant="caption" sx={{ fontStyle: 'italic' }}>
+          {t.footer}
+        </Typography>
       </Box>
     </Box>
   );

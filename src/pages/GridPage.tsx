@@ -45,10 +45,15 @@ export function GridPage(): React.ReactElement {
   return (
     <Stack spacing={3}>
       <Box>
-        <Typography variant="h4" component="h1" gutterBottom>
+        <Typography
+          variant="h4"
+          component="h1"
+          gutterBottom
+          sx={{ fontStyle: 'italic', color: 'primary.dark' }}
+        >
           {t.pickPuzzle}
         </Typography>
-        <Typography variant="body1" color="text.secondary">
+        <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 560 }}>
           {t.pickPuzzleDescription}
         </Typography>
       </Box>

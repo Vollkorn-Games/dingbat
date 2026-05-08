@@ -33,14 +33,19 @@ export function PuzzleCard({ puzzle, index, solved }: Props): React.ReactElement
   const difficultyLabel = t[DIFFICULTY_LABEL_KEY[puzzle.difficulty]];
   return (
     <Card
-      elevation={solved ? 1 : 2}
       sx={{
         position: 'relative',
-        outline: solved ? '2px solid' : '2px solid transparent',
-        outlineColor: solved ? 'success.main' : 'transparent',
-        outlineOffset: solved ? -2 : 0,
-        transition: 'outline-color 160ms ease, transform 120ms ease, box-shadow 120ms ease',
-        '&:hover': { transform: 'translateY(-2px)', boxShadow: 6 },
+        borderColor: solved ? 'success.light' : 'divider',
+        boxShadow: solved
+          ? '0 1px 0 rgba(255,255,255,0.6) inset, 0 4px 12px rgba(122,139,83,0.18)'
+          : '0 1px 0 rgba(255,255,255,0.6) inset, 0 2px 8px rgba(58,46,29,0.06)',
+        '&:hover': {
+          transform: 'translateY(-3px)',
+          boxShadow: solved
+            ? '0 1px 0 rgba(255,255,255,0.6) inset, 0 10px 22px rgba(122,139,83,0.22)'
+            : '0 1px 0 rgba(255,255,255,0.6) inset, 0 10px 22px rgba(58,46,29,0.12)',
+          borderColor: solved ? 'success.main' : 'primary.light',
+        },
       }}
     >
       <CardActionArea
@@ -54,8 +59,8 @@ export function PuzzleCard({ puzzle, index, solved }: Props): React.ReactElement
             aspectRatio: '1 / 1',
             backgroundColor: 'background.paper',
             backgroundImage: solved
-              ? 'linear-gradient(135deg, rgba(46,125,50,0.10), rgba(46,125,50,0.04))'
-              : 'linear-gradient(135deg, rgba(25,118,210,0.04), rgba(156,39,176,0.04))',
+              ? 'linear-gradient(140deg, rgba(204,213,174,0.35), rgba(254,250,224,0.7))'
+              : 'linear-gradient(140deg, rgba(250,237,205,0.55), rgba(254,250,224,0.85))',
             overflow: 'hidden',
           }}
         >
@@ -63,22 +68,26 @@ export function PuzzleCard({ puzzle, index, solved }: Props): React.ReactElement
 
           {solved ? (
             <CheckCircleIcon
-              color="success"
               sx={{
                 position: 'absolute',
                 top: 8,
                 right: 8,
                 fontSize: 28,
-                filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.25))',
+                color: 'success.dark',
+                filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.18))',
                 backgroundColor: 'background.paper',
                 borderRadius: '50%',
               }}
             />
           ) : null}
         </Box>
-        <Box sx={{ p: 1.5 }}>
+        <Box sx={{ px: 1.5, py: 1.25, borderTop: '1px solid', borderColor: 'divider' }}>
           <Stack direction="row" alignItems="center" justifyContent="space-between">
-            <Typography variant="subtitle2" color="text.secondary">
+            <Typography
+              variant="subtitle2"
+              color="text.secondary"
+              sx={{ fontVariantNumeric: 'tabular-nums', letterSpacing: '0.04em' }}
+            >
               #{(index + 1).toString().padStart(3, '0')}
             </Typography>
             <Chip
@@ -86,6 +95,7 @@ export function PuzzleCard({ puzzle, index, solved }: Props): React.ReactElement
               label={difficultyLabel}
               color={DIFFICULTY_COLOR[puzzle.difficulty]}
               variant="outlined"
+              sx={{ fontWeight: 600 }}
             />
           </Stack>
         </Box>
