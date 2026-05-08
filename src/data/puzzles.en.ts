@@ -888,12 +888,14 @@ export const PUZZLES_EN: readonly Puzzle[] = [
     answer: 'Top secret',
     difficulty: 'easy',
     tags: ['classic'],
-    explanation: 'TOP placed on top of SECRET.',
+    explanation: 'SECRET sitting at the very top of the frame.',
     visual: {
       kind: 'text',
       lines: [
-        { segments: [{ text: 'TOP', style: ['bold', 'huge'], color: '#d32f2f' }] },
-        { segments: [{ text: 'SECRET', style: ['bold', 'huge'] }] },
+        { segments: [{ text: 'SECRET', style: ['bold', 'huge'], color: '#d32f2f' }] },
+        { segments: [{ text: ' ' }] },
+        { segments: [{ text: ' ' }] },
+        { segments: [{ text: ' ' }] },
       ],
     },
   },
@@ -961,11 +963,11 @@ export const PUZZLES_EN: readonly Puzzle[] = [
     answer: 'Underdog',
     difficulty: 'easy',
     tags: ['classic'],
-    explanation: 'DOG placed under (below) UNDER.',
+    explanation: 'DOG below a horizontal line — under-dog.',
     visual: {
       kind: 'text',
       lines: [
-        { segments: [{ text: 'UNDER', style: ['bold', 'huge'] }] },
+        { segments: [{ text: '─────────────', style: ['bold'] }] },
         { segments: [{ text: 'DOG', style: ['bold', 'huge'] }] },
       ],
     },
@@ -975,11 +977,11 @@ export const PUZZLES_EN: readonly Puzzle[] = [
     answer: 'Underage',
     difficulty: 'easy',
     tags: ['classic'],
-    explanation: 'AGE placed under UNDER.',
+    explanation: 'AGE below a horizontal line.',
     visual: {
       kind: 'text',
       lines: [
-        { segments: [{ text: 'UNDER', style: ['bold', 'huge'] }] },
+        { segments: [{ text: '─────────────', style: ['bold'] }] },
         { segments: [{ text: 'AGE', style: ['bold', 'huge'] }] },
       ],
     },
@@ -989,26 +991,12 @@ export const PUZZLES_EN: readonly Puzzle[] = [
     answer: 'Overcoat',
     difficulty: 'easy',
     tags: ['clothing'],
-    explanation: 'OVER placed over COAT.',
+    explanation: 'COAT placed above SHIRT — worn over.',
     visual: {
       kind: 'text',
       lines: [
-        { segments: [{ text: 'OVER', style: ['bold', 'huge'] }] },
         { segments: [{ text: 'COAT', style: ['bold', 'huge'] }] },
-      ],
-    },
-  },
-  {
-    id: 'overdue',
-    answer: 'Overdue',
-    difficulty: 'easy',
-    tags: ['classic'],
-    explanation: 'OVER placed over DUE.',
-    visual: {
-      kind: 'text',
-      lines: [
-        { segments: [{ text: 'OVER', style: ['bold', 'huge'] }] },
-        { segments: [{ text: 'DUE', style: ['bold', 'huge'] }] },
+        { segments: [{ text: 'SHIRT', style: ['bold', 'huge'] }] },
       ],
     },
   },
@@ -1046,12 +1034,11 @@ export const PUZZLES_EN: readonly Puzzle[] = [
     answer: 'Down to earth',
     difficulty: 'medium',
     tags: ['phrase'],
-    explanation: 'DOWN, then an arrow, then EARTH.',
+    explanation: 'A downward arrow pointing to EARTH.',
     visual: {
       kind: 'text',
       lines: [
-        { segments: [{ text: 'DOWN', style: ['bold', 'huge'] }] },
-        { segments: [{ text: '↓', style: ['huge'], color: '#d32f2f' }] },
+        { segments: [{ text: '↓', style: ['bold', 'mega'], color: '#d32f2f' }] },
         { segments: [{ text: 'EARTH', style: ['bold', 'huge'] }] },
       ],
     },
@@ -1251,14 +1238,14 @@ export const PUZZLES_EN: readonly Puzzle[] = [
     answer: 'Red in the face',
     difficulty: 'medium',
     tags: ['phrase', 'color'],
-    explanation: 'The word RED, in red, inside FACE.',
+    explanation: 'A red dot inside FACE.',
     visual: {
       kind: 'text',
       lines: [
         {
           segments: [
             { text: 'FA', style: ['bold', 'huge'] },
-            { text: 'RED', style: ['bold', 'huge'], color: '#d32f2f' },
+            { text: '●', style: ['bold', 'huge'], color: '#d32f2f' },
             { text: 'CE', style: ['bold', 'huge'] },
           ],
         },
@@ -1341,19 +1328,6 @@ export const PUZZLES_EN: readonly Puzzle[] = [
 
   // --- Color-based puzzles -------------------------------------------------
   {
-    id: 'ultraviolet',
-    answer: 'Ultraviolet',
-    difficulty: 'easy',
-    tags: ['color'],
-    explanation: 'ULTRA written in violet.',
-    visual: {
-      kind: 'text',
-      lines: [
-        { segments: [{ text: 'ULTRA', style: ['bold', 'huge'], color: '#8e24aa' }] },
-      ],
-    },
-  },
-  {
     id: 'black-eye',
     answer: 'Black eye',
     alternatives: ['A black eye'],
@@ -1381,20 +1355,6 @@ export const PUZZLES_EN: readonly Puzzle[] = [
     },
   },
   {
-    id: 'green-house',
-    answer: 'Greenhouse',
-    alternatives: ['Green house'],
-    difficulty: 'easy',
-    tags: ['color'],
-    explanation: 'HOUSE in green.',
-    visual: {
-      kind: 'text',
-      lines: [
-        { segments: [{ text: 'HOUSE', style: ['bold', 'huge'], color: '#2e7d32' }] },
-      ],
-    },
-  },
-  {
     id: 'red-handed',
     answer: 'Red handed',
     alternatives: ['Caught red handed', 'Red-handed'],
@@ -1405,93 +1365,6 @@ export const PUZZLES_EN: readonly Puzzle[] = [
       kind: 'text',
       lines: [
         { segments: [{ text: 'HANDED', style: ['bold', 'huge'], color: '#d32f2f' }] },
-      ],
-    },
-  },
-  {
-    id: 'red-herring',
-    answer: 'Red herring',
-    alternatives: ['A red herring'],
-    difficulty: 'easy',
-    tags: ['color'],
-    explanation: 'HERRING in red.',
-    visual: {
-      kind: 'text',
-      lines: [
-        { segments: [{ text: 'HERRING', style: ['bold', 'huge'], color: '#d32f2f' }] },
-      ],
-    },
-  },
-  {
-    id: 'blue-movie',
-    answer: 'Blue movie',
-    alternatives: ['A blue movie'],
-    difficulty: 'easy',
-    tags: ['color'],
-    explanation: 'MOVIE in blue.',
-    visual: {
-      kind: 'text',
-      lines: [
-        { segments: [{ text: 'MOVIE', style: ['bold', 'huge'], color: '#1976d2' }] },
-      ],
-    },
-  },
-  {
-    id: 'black-market',
-    answer: 'Black market',
-    difficulty: 'easy',
-    tags: ['color'],
-    explanation: 'MARKET in black bold.',
-    visual: {
-      kind: 'text',
-      lines: [
-        { segments: [{ text: 'MARKET', style: ['bold', 'huge', 'fat'], color: '#000000' }] },
-      ],
-    },
-  },
-  {
-    id: 'cold-shoulder',
-    answer: 'Cold shoulder',
-    alternatives: ['The cold shoulder'],
-    difficulty: 'easy',
-    tags: ['color'],
-    explanation: 'SHOULDER in icy blue.',
-    visual: {
-      kind: 'text',
-      lines: [
-        { segments: [{ text: 'SHOULDER', style: ['bold', 'huge'], color: '#1976d2' }] },
-      ],
-    },
-  },
-  {
-    id: 'hot-dog',
-    answer: 'Hot dog',
-    alternatives: ['Hotdog'],
-    difficulty: 'easy',
-    tags: ['color', 'food'],
-    explanation: 'DOG glowing red-hot.',
-    visual: {
-      kind: 'text',
-      lines: [
-        { segments: [{ text: 'DOG', style: ['bold', 'huge'], color: '#d32f2f' }] },
-      ],
-    },
-  },
-  {
-    id: 'silver-lining',
-    answer: 'Every cloud has a silver lining',
-    alternatives: ['Silver lining'],
-    difficulty: 'medium',
-    tags: ['phrase', 'color'],
-    explanation: 'CLOUD outlined in silver.',
-    visual: {
-      kind: 'text',
-      lines: [
-        {
-          segments: [
-            { text: 'CLOUD', style: ['bold', 'huge'], color: '#9e9e9e' },
-          ],
-        },
       ],
     },
   },
@@ -1605,24 +1478,11 @@ export const PUZZLES_EN: readonly Puzzle[] = [
     answer: 'Bottoms up',
     difficulty: 'medium',
     tags: ['classic'],
-    explanation: 'BOTTOMS turned upside-down.',
+    explanation: 'CHEERS turned upside down — bottoms up.',
     visual: {
       kind: 'text',
       lines: [
-        { segments: [{ text: 'BOTTOMS', style: ['bold', 'huge', 'flip'] }] },
-      ],
-    },
-  },
-  {
-    id: 'mirror-image',
-    answer: 'Mirror image',
-    difficulty: 'medium',
-    tags: ['classic'],
-    explanation: 'IMAGE rendered as its mirror.',
-    visual: {
-      kind: 'text',
-      lines: [
-        { segments: [{ text: 'IMAGE', style: ['bold', 'huge', 'mirror'] }] },
+        { segments: [{ text: 'CHEERS', style: ['bold', 'huge', 'rotate180'] }] },
       ],
     },
   },
@@ -1674,13 +1534,18 @@ export const PUZZLES_EN: readonly Puzzle[] = [
   {
     id: 'feedback',
     answer: 'Feedback',
-    difficulty: 'easy',
+    difficulty: 'medium',
     tags: ['classic'],
-    explanation: 'FEED written backwards.',
+    explanation: 'FEED with an arrow looping back.',
     visual: {
       kind: 'text',
       lines: [
-        { segments: [{ text: 'FEED', style: ['bold', 'huge', 'mirror'] }] },
+        {
+          segments: [
+            { text: 'FEED', style: ['bold', 'huge'] },
+            { text: '  ↩', style: ['bold', 'mega'], color: '#d32f2f' },
+          ],
+        },
       ],
     },
   },
@@ -1735,23 +1600,6 @@ export const PUZZLES_EN: readonly Puzzle[] = [
       kind: 'text',
       lines: [
         { segments: [{ text: 'MIND', style: ['bold', 'huge', 'spaced'] }] },
-      ],
-    },
-  },
-  {
-    id: 'tall-tale',
-    answer: 'A tall tale',
-    alternatives: ['Tall tale'],
-    difficulty: 'easy',
-    tags: ['classic'],
-    explanation: 'TALE standing tall.',
-    visual: {
-      kind: 'text',
-      lines: [
-        { segments: [{ text: 'T', style: ['bold', 'huge'] }] },
-        { segments: [{ text: 'A', style: ['bold', 'huge'] }] },
-        { segments: [{ text: 'L', style: ['bold', 'huge'] }] },
-        { segments: [{ text: 'E', style: ['bold', 'huge'] }] },
       ],
     },
   },
@@ -1875,12 +1723,12 @@ export const PUZZLES_EN: readonly Puzzle[] = [
     id: 'download',
     answer: 'Download',
     difficulty: 'easy',
-    tags: ['stack'],
-    explanation: 'DOWN placed over LOAD.',
+    tags: ['classic'],
+    explanation: 'A downward arrow above LOAD.',
     visual: {
       kind: 'text',
       lines: [
-        { segments: [{ text: 'DOWN', style: ['bold', 'huge'] }] },
+        { segments: [{ text: '↓', style: ['bold', 'mega'], color: '#1976d2' }] },
         { segments: [{ text: 'LOAD', style: ['bold', 'huge'] }] },
       ],
     },
@@ -1889,12 +1737,12 @@ export const PUZZLES_EN: readonly Puzzle[] = [
     id: 'upload',
     answer: 'Upload',
     difficulty: 'easy',
-    tags: ['stack'],
-    explanation: 'UP placed over LOAD.',
+    tags: ['classic'],
+    explanation: 'An upward arrow above LOAD.',
     visual: {
       kind: 'text',
       lines: [
-        { segments: [{ text: 'UP', style: ['bold', 'huge'] }] },
+        { segments: [{ text: '↑', style: ['bold', 'mega'], color: '#1976d2' }] },
         { segments: [{ text: 'LOAD', style: ['bold', 'huge'] }] },
       ],
     },
@@ -1903,54 +1751,42 @@ export const PUZZLES_EN: readonly Puzzle[] = [
     id: 'touchdown',
     answer: 'Touchdown',
     difficulty: 'easy',
-    tags: ['stack'],
-    explanation: 'TOUCH placed over DOWN.',
+    tags: ['classic'],
+    explanation: 'TOUCH written downward.',
     visual: {
       kind: 'text',
       lines: [
-        { segments: [{ text: 'TOUCH', style: ['bold', 'huge'] }] },
-        { segments: [{ text: 'DOWN', style: ['bold', 'huge'] }] },
+        { segments: [{ text: 'T', style: ['bold', 'huge'] }] },
+        { segments: [{ text: 'O', style: ['bold', 'huge'] }] },
+        { segments: [{ text: 'U', style: ['bold', 'huge'] }] },
+        { segments: [{ text: 'C', style: ['bold', 'huge'] }] },
+        { segments: [{ text: 'H', style: ['bold', 'huge'] }] },
       ],
     },
   },
   {
     id: 'ground-coffee',
     answer: 'Ground coffee',
-    difficulty: 'easy',
-    tags: ['stack', 'food'],
-    explanation: 'COFFEE under GROUND.',
+    difficulty: 'medium',
+    tags: ['food', 'classic'],
+    explanation: 'The letters of COFFEE ground up — scrambled.',
     visual: {
       kind: 'text',
       lines: [
-        { segments: [{ text: 'GROUND', style: ['bold', 'huge'] }] },
-        { segments: [{ text: 'COFFEE', style: ['bold', 'huge'], color: '#5d4037' }] },
-      ],
-    },
-  },
-  {
-    id: 'on-the-level',
-    answer: 'On the level',
-    difficulty: 'easy',
-    tags: ['stack'],
-    explanation: 'ON sitting on top of LEVEL.',
-    visual: {
-      kind: 'text',
-      lines: [
-        { segments: [{ text: 'ON', style: ['bold', 'huge'], color: '#d32f2f' }] },
-        { segments: [{ text: 'LEVEL', style: ['bold', 'huge'] }] },
+        { segments: [{ text: 'F E O F C E', style: ['bold', 'huge'], color: '#5d4037' }] },
       ],
     },
   },
   {
     id: 'above-the-law',
     answer: 'Above the law',
-    difficulty: 'easy',
-    tags: ['stack'],
-    explanation: 'ABOVE positioned above LAW.',
+    difficulty: 'medium',
+    tags: ['phrase'],
+    explanation: 'YOU positioned above LAW.',
     visual: {
       kind: 'text',
       lines: [
-        { segments: [{ text: 'ABOVE', style: ['bold', 'huge'], color: '#d32f2f' }] },
+        { segments: [{ text: 'YOU', style: ['bold', 'huge'], color: '#d32f2f' }] },
         { segments: [{ text: 'LAW', style: ['bold', 'huge'] }] },
       ],
     },
@@ -1958,14 +1794,14 @@ export const PUZZLES_EN: readonly Puzzle[] = [
   {
     id: 'below-the-belt',
     answer: 'Below the belt',
-    difficulty: 'easy',
-    tags: ['stack'],
-    explanation: 'BELOW positioned below BELT.',
+    difficulty: 'medium',
+    tags: ['phrase'],
+    explanation: 'PUNCH below BELT.',
     visual: {
       kind: 'text',
       lines: [
         { segments: [{ text: 'BELT', style: ['bold', 'huge'] }] },
-        { segments: [{ text: 'BELOW', style: ['bold', 'huge'], color: '#d32f2f' }] },
+        { segments: [{ text: 'PUNCH', style: ['bold', 'huge'], color: '#d32f2f' }] },
       ],
     },
   },
@@ -1973,13 +1809,13 @@ export const PUZZLES_EN: readonly Puzzle[] = [
     id: 'top-hat',
     answer: 'Top hat',
     difficulty: 'easy',
-    tags: ['stack', 'clothing'],
-    explanation: 'TOP placed on top of HAT.',
+    tags: ['clothing'],
+    explanation: 'HAT placed on top of HEAD.',
     visual: {
       kind: 'text',
       lines: [
-        { segments: [{ text: 'TOP', style: ['bold', 'huge'], color: '#d32f2f' }] },
         { segments: [{ text: 'HAT', style: ['bold', 'huge'] }] },
+        { segments: [{ text: 'HEAD', style: ['bold', 'huge'] }] },
       ],
     },
   },
@@ -2179,23 +2015,6 @@ export const PUZZLES_EN: readonly Puzzle[] = [
       kind: 'text',
       lines: [
         { segments: [{ text: 'META META META META', style: ['bold', 'huge'] }] },
-      ],
-    },
-  },
-  {
-    id: 'repeat-offender',
-    answer: 'Repeat offender',
-    difficulty: 'medium',
-    tags: ['classic'],
-    explanation: 'OFFENDER repeated.',
-    visual: {
-      kind: 'text',
-      lines: [
-        {
-          segments: [
-            { text: 'OFFENDER OFFENDER OFFENDER', style: ['bold', 'small'] },
-          ],
-        },
       ],
     },
   },
@@ -2429,11 +2248,17 @@ export const PUZZLES_EN: readonly Puzzle[] = [
     alternatives: ['The inner circle'],
     difficulty: 'medium',
     tags: ['classic'],
-    explanation: 'CIRCLE positioned inside a box.',
+    explanation: 'INNER nestled inside the word CIRCLE.',
     visual: {
       kind: 'text',
       lines: [
-        { segments: [{ text: 'CIRCLE', style: ['bold', 'huge', 'box'] }] },
+        {
+          segments: [
+            { text: 'CIR', style: ['bold', 'huge'] },
+            { text: 'INNER', style: ['bold', 'huge'], color: '#d32f2f' },
+            { text: 'CLE', style: ['bold', 'huge'] },
+          ],
+        },
       ],
     },
   },
@@ -2464,114 +2289,6 @@ export const PUZZLES_EN: readonly Puzzle[] = [
       kind: 'text',
       lines: [
         { segments: [{ text: 'LIE', style: ['bold', 'mega', 'outline'] }] },
-      ],
-    },
-  },
-  {
-    id: 'blue-blood',
-    answer: 'Blue blood',
-    difficulty: 'easy',
-    tags: ['color'],
-    explanation: 'BLOOD in blue.',
-    visual: {
-      kind: 'text',
-      lines: [
-        { segments: [{ text: 'BLOOD', style: ['bold', 'huge'], color: '#1976d2' }] },
-      ],
-    },
-  },
-  {
-    id: 'yellow-belly',
-    answer: 'Yellow belly',
-    alternatives: ['Yellow-bellied'],
-    difficulty: 'easy',
-    tags: ['color'],
-    explanation: 'BELLY in yellow.',
-    visual: {
-      kind: 'text',
-      lines: [
-        { segments: [{ text: 'BELLY', style: ['bold', 'huge'], color: '#f9a825' }] },
-      ],
-    },
-  },
-  {
-    id: 'green-with-envy',
-    answer: 'Green with envy',
-    difficulty: 'easy',
-    tags: ['color'],
-    explanation: 'ENVY in green.',
-    visual: {
-      kind: 'text',
-      lines: [
-        { segments: [{ text: 'ENVY', style: ['bold', 'huge'], color: '#2e7d32' }] },
-      ],
-    },
-  },
-  {
-    id: 'seeing-red',
-    answer: 'Seeing red',
-    difficulty: 'easy',
-    tags: ['color'],
-    explanation: 'SEEING in red.',
-    visual: {
-      kind: 'text',
-      lines: [
-        { segments: [{ text: 'SEEING', style: ['bold', 'huge'], color: '#d32f2f' }] },
-      ],
-    },
-  },
-  {
-    id: 'pink-slip',
-    answer: 'Pink slip',
-    alternatives: ['Got the pink slip'],
-    difficulty: 'medium',
-    tags: ['color'],
-    explanation: 'SLIP in pink, slipping at an angle.',
-    visual: {
-      kind: 'text',
-      lines: [
-        { segments: [{ text: 'SLIP', style: ['bold', 'huge', 'italic'], color: '#ec407a' }] },
-      ],
-    },
-  },
-  {
-    id: 'hot-head',
-    answer: 'Hot head',
-    alternatives: ['Hothead'],
-    difficulty: 'easy',
-    tags: ['color'],
-    explanation: 'HEAD glowing red-hot.',
-    visual: {
-      kind: 'text',
-      lines: [
-        { segments: [{ text: 'HEAD', style: ['bold', 'huge'], color: '#d32f2f' }] },
-      ],
-    },
-  },
-  {
-    id: 'cold-feet',
-    answer: 'Cold feet',
-    difficulty: 'easy',
-    tags: ['color'],
-    explanation: 'FEET in icy blue.',
-    visual: {
-      kind: 'text',
-      lines: [
-        { segments: [{ text: 'FEET', style: ['bold', 'huge'], color: '#1976d2' }] },
-      ],
-    },
-  },
-  {
-    id: 'golden-opportunity',
-    answer: 'Golden opportunity',
-    alternatives: ['A golden opportunity'],
-    difficulty: 'medium',
-    tags: ['color'],
-    explanation: 'OPPORTUNITY in gold.',
-    visual: {
-      kind: 'text',
-      lines: [
-        { segments: [{ text: 'OPPORTUNITY', style: ['bold', 'huge'], color: '#f9a825' }] },
       ],
     },
   },
@@ -2689,19 +2406,6 @@ export const PUZZLES_EN: readonly Puzzle[] = [
         { segments: [{ text: 'K', style: ['bold', 'huge'] }] },
         { segments: [{ text: 'A', style: ['bold', 'huge'] }] },
         { segments: [{ text: 'M', style: ['bold', 'huge'] }] },
-      ],
-    },
-  },
-  {
-    id: 'upside-down',
-    answer: 'Upside down',
-    difficulty: 'easy',
-    tags: ['classic'],
-    explanation: 'UPSIDE rendered upside down.',
-    visual: {
-      kind: 'text',
-      lines: [
-        { segments: [{ text: 'UPSIDE', style: ['bold', 'huge', 'rotate180'] }] },
       ],
     },
   },
@@ -2823,33 +2527,6 @@ export const PUZZLES_EN: readonly Puzzle[] = [
     },
   },
   {
-    id: 'left-handed',
-    answer: 'Left handed',
-    alternatives: ['Lefthanded'],
-    difficulty: 'medium',
-    tags: ['mirror'],
-    explanation: 'HANDED reversed.',
-    visual: {
-      kind: 'text',
-      lines: [
-        { segments: [{ text: 'HANDED', style: ['bold', 'huge', 'mirror'] }] },
-      ],
-    },
-  },
-  {
-    id: 'anticlockwise',
-    answer: 'Anticlockwise',
-    difficulty: 'medium',
-    tags: ['mirror'],
-    explanation: 'CLOCKWISE reversed.',
-    visual: {
-      kind: 'text',
-      lines: [
-        { segments: [{ text: 'CLOCKWISE', style: ['bold', 'huge', 'mirror'] }] },
-      ],
-    },
-  },
-  {
     id: 'splitting-headache',
     answer: 'Splitting headache',
     alternatives: ['A splitting headache'],
@@ -2950,31 +2627,13 @@ export const PUZZLES_EN: readonly Puzzle[] = [
     alternatives: ['The tip of the iceberg'],
     difficulty: 'hard',
     tags: ['classic'],
-    explanation: 'Only the tip (top) of ICEBERG is visible.',
+    explanation: 'Only the top sliver of ICEBERG sticks above the waterline.',
     visual: {
       kind: 'text',
       lines: [
-        {
-          segments: [
-            { text: 'ICEBERG', style: ['bold', 'huge'], color: '#1976d2' },
-          ],
-        },
-        { segments: [{ text: '▔▔▔▔▔▔▔', color: '#90caf9' }] },
-      ],
-    },
-  },
-  {
-    id: 'between-the-lines',
-    answer: 'Between the lines',
-    difficulty: 'easy',
-    tags: ['classic'],
-    explanation: 'THE between two lines.',
-    visual: {
-      kind: 'text',
-      lines: [
-        { segments: [{ text: '──────────' }] },
-        { segments: [{ text: 'THE', style: ['bold', 'huge'] }] },
-        { segments: [{ text: '──────────' }] },
+        { segments: [{ text: 'I', style: ['bold', 'huge'], color: '#1976d2' }] },
+        { segments: [{ text: '~~~~~~~~~~', color: '#90caf9' }] },
+        { segments: [{ text: 'CEBERG', style: ['bold', 'huge'], color: '#1976d2' }] },
       ],
     },
   },
@@ -3011,47 +2670,19 @@ export const PUZZLES_EN: readonly Puzzle[] = [
     },
   },
   {
-    id: 'big-top',
-    answer: 'Big top',
-    alternatives: ['The big top'],
-    difficulty: 'easy',
-    tags: ['size'],
-    explanation: 'TOP writ huge.',
-    visual: {
-      kind: 'text',
-      lines: [
-        { segments: [{ text: 'TOP', style: ['bold', 'mega'] }] },
-      ],
-    },
-  },
-  {
-    id: 'lemonade',
-    answer: 'Lemonade',
-    difficulty: 'easy',
-    tags: ['food'],
-    explanation: 'LEM placed over ADE.',
-    visual: {
-      kind: 'text',
-      lines: [
-        { segments: [{ text: 'LEM', style: ['bold', 'huge'], color: '#f9a825' }] },
-        { segments: [{ text: 'ADE', style: ['bold', 'huge'] }] },
-      ],
-    },
-  },
-  {
     id: 'end-of-the-road',
     answer: 'End of the road',
     alternatives: ['The end of the road'],
-    difficulty: 'easy',
+    difficulty: 'medium',
     tags: ['classic'],
-    explanation: 'END placed at the end of ROAD.',
+    explanation: 'ROAD with a stop sign at the end.',
     visual: {
       kind: 'text',
       lines: [
         {
           segments: [
             { text: 'ROAD ', style: ['bold', 'huge'] },
-            { text: 'END', style: ['bold', 'huge'], color: '#d32f2f' },
+            { text: '🛑', style: ['huge'] },
           ],
         },
       ],
